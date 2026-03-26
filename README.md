@@ -8,8 +8,6 @@ AI coding agent skills for the design framing loop — reason through decisions,
 
 **`/ideation-partner`** — Explore a problem space and generate genuinely different solution directions. Works from tickets, notes, screenshots, or a verbal description. Asks targeted questions to frame the problem, then produces multiple distinct concepts — not variations on one idea.
 
-### Experimental skills
-
 **`/next-move-partner`** — Figure out what design move to make next when you're unclear where to focus or what's been missed. Scans artifacts, shows a compact status map, and recommends which skill to invoke.
 
 **`/pitch-partner`** — Communicate design work to a specific audience — stakeholders, teammates, clients, or cross-functional partners. Restructures artifacts into one-pagers, async messages, tickets, or talking points tuned to the reader's mental model.
