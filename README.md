@@ -24,7 +24,6 @@ The skills follow a natural design progression, though you can enter at any poin
 
 ```
 Orient → Research → Reason → Ideate → Scope → Pitch
- (map)    (learn)   (decide) (explore) (break down) (communicate)
 ```
 
 **Orient** maps the problem. **Research** fills knowledge gaps. **Reasoning** works through decisions and assumptions. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Pitch** communicates the result.
