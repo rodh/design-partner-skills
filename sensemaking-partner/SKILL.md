@@ -1,11 +1,11 @@
 ---
-name: orienting-partner
-description: Use when you need to break down and map a ticket, task, or project context — what the parts are, where complexity hides, and what level of effort each part warrants
+name: sensemaking-partner
+description: Use when you need to build structured understanding from a ticket, task, or project context — what the parts are, where complexity hides, and what level of effort each part warrants
 ---
 
 ## 1. Scope
 
-Ingest context from `$ARGUMENTS` — tickets, docs, task descriptions, conversation threads, flows. Scan CWD for related code, docs, existing `artifacts/**/orient-*.md` artifacts, `artifacts/**/thinking-*.md` sessions, `artifacts/**/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already covers this, surface it instead of re-decomposing.
+Ingest context from `$ARGUMENTS` — tickets, docs, task descriptions, conversation threads, flows. Scan CWD for related code, docs, existing `artifacts/**/sense-*.md` artifacts, `artifacts/**/thinking-*.md` sessions, `artifacts/**/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already covers this, surface it instead of re-decomposing.
 
 Classify:
 
@@ -41,9 +41,9 @@ Present a scoped problem statement with 2-3 labeled next moves reflecting the ac
 
 ## 4. Save
 
-Save to `artifacts/orient-<descriptive-name>.md` with:
+Save to `artifacts/sense-<descriptive-name>.md` with:
 
-- H1 title: `# Orient: <title>` summarizing what was decomposed
+- H1 title: `# Sensemaking: <title>` summarizing what was decomposed
 - Date
 - **Question/Context** — the original ticket, task, or domain being understood
 - **Decomposition** — breakdown, landscape, design surface, effort assessment (compressed)
@@ -53,7 +53,7 @@ Save to `artifacts/orient-<descriptive-name>.md` with:
 
 The artifact must be **self-contained** — readable without conversation context.
 
-**No Act phase.** Orient produces understanding; downstream skills produce action.
+**No Act phase.** Sensemaking produces understanding; downstream skills produce action.
 
 **Anti-pattern: "I already understand this."** The temptation to skip decomposition is strongest on tasks that look straightforward. Those are exactly where hidden design complexity and unstated assumptions do the most damage. The decomposition can be compact, but it must exist.
 

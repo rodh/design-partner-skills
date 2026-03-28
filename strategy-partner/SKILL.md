@@ -5,7 +5,7 @@ description: Use when you have an initiative, ticket, or brief and need to plan 
 
 ## Phase 1 — Ingest
 
-Scan `artifacts/` (and one level of subfolders) for existing work — orient maps, research artifacts, thinking sessions, briefs, concepts. Read whatever input is provided: orient artifact, ticket, PRD, notes, verbal description. Assess what exists vs. what's missing. If the input is too thin to plan from, name what's needed rather than guessing.
+Scan `artifacts/` (and one level of subfolders) for existing work — sensemaking artifacts, research artifacts, thinking sessions, briefs, concepts. Read whatever input is provided: sensemaking artifact, ticket, PRD, notes, verbal description. Assess what exists vs. what's missing. If the input is too thin to plan from, name what's needed rather than guessing.
 
 ## Phase 2 — Frame
 
@@ -25,7 +25,7 @@ If the user says "just go" or similar, proceed with reasonable assumptions and f
 
 **Stop and wait.**
 
-**Not for:** decomposing a problem you don't yet understand (`/orienting-partner`), working through a specific decision or tradeoff (`/thinking-partner`), or breaking a chosen direction into buildable tiers (`/scoping-partner`). Strategy-partner plans *what design work to do*, not *how to do it*.
+**Not for:** decomposing a problem you don't yet understand (`/sensemaking-partner`), working through a specific decision or tradeoff (`/thinking-partner`), or breaking a chosen direction into buildable tiers (`/scoping-partner`). Strategy-partner plans *what design work to do*, not *how to do it*.
 
 ## Phase 3 — Plan workstreams
 
@@ -88,6 +88,6 @@ Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist.
 - Strategic questions inform the plan — they appear as rationale in the "Why" column of action tables. The standalone list in the artifact exists for orientation, not as a separate deliverable.
 - "Start Here" is mandatory. Every strategy names 2-3 highest-value first actions.
 - If there's only one workstream, the initiative may not need strategizing — say so and recommend going straight to the appropriate skill (`/research-partner`, `/thinking-partner`, `/ideation-partner`, or `/scoping-partner`).
-- If input needs decomposition before strategizing is productive, say so and recommend `/orienting-partner`.
+- If input needs decomposition before strategizing is productive, say so and recommend `/sensemaking-partner`.
 
 $ARGUMENTS

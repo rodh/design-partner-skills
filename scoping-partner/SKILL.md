@@ -5,7 +5,7 @@ description: Use when you have a chosen direction and need to break it into prio
 
 ## Phase 1 — Understand
 
-Read the concept, brief, wireframes, or other artifacts the user points to. Scan `artifacts/` (and one level of subfolders) for related context — prior orient or thinking sessions, research, test results — that informs scope decisions.
+Read the concept, brief, wireframes, or other artifacts the user points to. Scan `artifacts/` (and one level of subfolders) for related context — prior sensemaking or thinking sessions, research, test results — that informs scope decisions.
 
 Ask clarifying questions (one per `AskUserQuestion` or `requestUserInput` call, never batch). The test for each question: **would knowing this change how I'd scope this?** Stop when answers stop changing your thinking.
 
