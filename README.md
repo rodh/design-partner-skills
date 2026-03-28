@@ -12,7 +12,7 @@ AI coding agent skills for the design framing loop — reason through decisions,
 
 **`/scoping-partner`** — Break a chosen direction into prioritized scope tiers (MVP, should-have, nice-to-have). Decomposes features, sequences by dependencies, and produces tickets with acceptance criteria and T-shirt sizing.
 
-**`/pitch-partner`** — Communicate design work to a specific audience — stakeholders, teammates, clients, or cross-functional partners. Restructures artifacts into one-pagers, async messages, tickets, or talking points tuned to the reader's mental model.
+**`/sharing-partner`** — Communicate design work to a specific audience — stakeholders, teammates, clients, or cross-functional partners. Restructures artifacts into one-pagers, async messages, tickets, or talking points tuned to the reader's mental model.
 
 **`/research-partner`** — Look into a topic: competitor patterns, technical approaches, how something works, or focused factual questions. Produces self-contained research artifacts that feed into reasoning, ideation, and scoping.
 
@@ -23,12 +23,12 @@ AI coding agent skills for the design framing loop — reason through decisions,
 The skills form two layers:
 
 ```
-Sense — Strategize — Ideate — Scope — Pitch
+Sense — Strategize — Ideate — Scope — Share
                      |
             Research · Thinking
 ```
 
-**Sensemaking** maps the problem. **Strategize** plans what design work to do. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Pitch** communicates the result.
+**Sensemaking** maps the problem. **Strategize** plans what design work to do. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Share** communicates the result.
 
 **Research** fills knowledge gaps and **Thinking** works through decisions, hunches, tradeoffs, and assumptions — both available at any stage of the flow.
 

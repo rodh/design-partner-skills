@@ -1,5 +1,5 @@
 ---
-name: pitch-partner
+name: sharing-partner
 description: Use when you need to communicate design work to a specific audience — stakeholders, teammates, clients, or cross-functional partners
 ---
 
@@ -61,7 +61,7 @@ Produce the artifact in the agreed format:
 - Context (link to brief/concept, key constraints)
 - Size estimate if scoping exists
 
-Pitch tickets frame the problem for stakeholder understanding, not implementation detail. Implementation-ready tickets with dependencies and sizing are a separate step.
+These tickets frame the problem for stakeholder understanding, not implementation detail. Implementation-ready tickets with dependencies and sizing are a separate step.
 
 **Talking points:**
 - Opening — what to lead with (1-2 sentences)
@@ -80,14 +80,14 @@ Common refinement axes: tone (too formal/informal), length (cut or expand), emph
 When the user is satisfied, save.
 
 **Save to:**
-- One-pager: `artifacts/pitch-<descriptive-name>.md`
-- Async message: `artifacts/pitch-<descriptive-name>.md`
+- One-pager: `artifacts/sharing-<descriptive-name>.md`
+- Async message: `artifacts/sharing-<descriptive-name>.md`
 - Ticket/story: `artifacts/ticket-<descriptive-name>.md`
-- Talking points: `artifacts/pitch-<descriptive-name>.md`
+- Talking points: `artifacts/sharing-<descriptive-name>.md`
 
-Start the file with an H1 title: `# Pitch: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the descriptive name from the core topic — 2-4 hyphenated words.
+Start the file with an H1 title: `# Sharing: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the descriptive name from the core topic — 2-4 hyphenated words.
 
-**Anti-pattern: "Just clean up my notes."** This skill reframes, it doesn't summarize. If the output reads like a shorter version of the input, the pitch failed. The reader has a different mental model — the pitch restructures information for their brain, not yours.
+**Anti-pattern: "Just clean up my notes."** This skill reframes, it doesn't summarize. If the output reads like a shorter version of the input, it missed. The reader has a different mental model — this skill restructures information for their brain, not yours.
 
 ## Artifact Directory
 
@@ -98,7 +98,7 @@ Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist.
 - Be direct. No preamble, no filler.
 - One question per (`AskUserQuestion` or `requestUserInput`) call.
 - This is reframing, not summarizing. The raw artifacts have the information — this skill restructures it for a different brain to process.
-- Match the audience's vocabulary. Don't use design jargon in a leadership pitch; don't oversimplify for a technical teammate.
+- Match the audience's vocabulary. Don't use design jargon for a leadership audience; don't oversimplify for a technical teammate.
 - If the source artifacts are thin, say so. Don't invent substance that isn't there — flag gaps and let the user decide whether to fill them first.
 
 $ARGUMENTS
