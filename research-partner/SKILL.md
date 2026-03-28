@@ -5,7 +5,7 @@ description: Use when you need to research a topic — look into competitor patt
 
 ## 1. Scope
 
-Ingest the research question from `$ARGUMENTS`. Scan CWD for context related to the topic: code, docs, existing `topics/*/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already answers the question, surface it instead of re-researching.
+Ingest the research question from `$ARGUMENTS`. Scan CWD for context related to the topic: code, docs, existing `artifacts/**/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already answers the question, surface it instead of re-researching.
 
 Classify depth:
 
@@ -41,7 +41,7 @@ Present the summary. **Stop and wait** for the user to confirm before saving.
 
 ## 4. Save
 
-Save to `topics/<topic>/research-<slug>.md` with:
+Save to `artifacts/research-<descriptive-name>.md` with:
 
 - H1 title: `# Research: <title>` summarizing the research question
 - Date
@@ -51,16 +51,9 @@ The artifact must be **self-contained** — readable without conversation contex
 
 **Anti-pattern: "I'll just start searching."** The temptation to skip scoping is strongest when the question feels obvious. But unscoped research sprawls — you end up with a pile of links organized by when you found them, not by what they mean. Even a one-line scope ("Quick lookup: what's the max payload size for X?") keeps the investigation focused.
 
-## Topic Folder Convention
+## Artifact Directory
 
-All artifacts are saved under `topics/<topic>/`. Before the first save in a session:
-
-1. Scan `topics/` for existing folders.
-2. If one matches the current topic, propose reusing it: "I'll save to `topics/<folder>/` — sound right?"
-3. If none match, derive a 2-4 word hyphenated folder name from the topic and propose it.
-4. Create the directory on user confirmation.
-
-All file paths in this skill use `topics/<topic>/` as the root.
+Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

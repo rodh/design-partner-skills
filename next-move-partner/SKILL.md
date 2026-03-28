@@ -5,7 +5,7 @@ description: Use when you want to know what design move to make next — unclear
 
 ## 1. Scan
 
-Scan `topics/` for all topic folders. Within each, identify artifacts by filename prefix:
+Scan `artifacts/` (and one level of subfolders) for artifacts by filename prefix:
 
 - `orient-*.md` orientation artifacts
 - `reasoning-*.md` session notes
@@ -21,25 +21,17 @@ Read each artifact's title and opening section — enough to know what it covers
 
 ## 2. Status map
 
-Present a compact status map grouped by topic folder, showing what exists and its state within each:
+Present a compact status map grouped by artifact type, showing what exists:
 
 ```
-prompt-specificity/
-  Brief       1 (prompt-specificity)
-  Orient      None
-  Reasoning   1 session (prompt-ranges)
-  Research    1 (user-intent-taxonomy)
-  Concepts    1 (progressive-elicitation)
-  Scoping     None
-  Pitches     None
-
-interaction-patterns/
-  Brief       1 (interaction-patterns)
-  Orient      None
-  Reasoning   1 session (canvas-vs-chat)
-  Concepts    None
-  Scoping     None
-  Pitches     None
+Briefs      1 (onboarding-flow)
+Concepts    2 (onboarding-progressive, onboarding-wizard)
+Orient      1 (login-complexity)
+Reasoning   None
+Research    1 (enterprise-onboarding)
+Scoping     None
+Pitches     None
+Tickets     None
 ```
 
 Keep it tight — this is a glanceable dashboard, not a report.
@@ -55,7 +47,7 @@ Based on the status map, recommend the **single highest-value next move** with b
 - Problem framed but key assumptions lack evidence? Run `/research-partner` to investigate before committing to a direction.
 - Work is scoped but stakeholders haven't bought in? A pitch gets alignment.
 
-Name the specific skill to invoke, reference the topic context, and suggest input.
+Name the specific skill to invoke, reference the relevant artifacts, and suggest input.
 
 If the user has a different instinct, respect it. This skill advises — it doesn't dictate.
 

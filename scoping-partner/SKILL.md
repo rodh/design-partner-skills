@@ -5,7 +5,7 @@ description: Use when you have a chosen direction and need to break it into prio
 
 ## Phase 1 — Understand
 
-Read the concept, brief, wireframes, or other artifacts the user points to. Scan `topics/` for related context — prior orient or reasoning sessions, research, test results — that informs scope decisions.
+Read the concept, brief, wireframes, or other artifacts the user points to. Scan `artifacts/` (and one level of subfolders) for related context — prior orient or reasoning sessions, research, test results — that informs scope decisions.
 
 Ask clarifying questions (one per `AskUserQuestion` or `requestUserInput` call, never batch). The test for each question: **would knowing this change how I'd scope this?** Stop when answers stop changing your thinking.
 
@@ -64,7 +64,7 @@ Present all tickets. **Stop and wait** for feedback before saving.
 
 ## Phase 5 — Capture
 
-Save to `topics/<topic>/scope-<slug>.md`, where `<slug>` is 2-4 hyphenated words derived from the project or feature name.
+Save to `artifacts/scope-<descriptive-name>.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
 
 Start the file with an H1 title: `# Scope: <descriptive title>` (e.g., `# Scope: Onboarding Flow MVP`).
 
@@ -77,16 +77,9 @@ Structure:
 
 **Anti-pattern: "Scope the whole vision."** Scoping works on a chosen direction, not a feature wish list. If the input hasn't converged on a direction, say so — the user needs to explore and converge before scoping will be productive.
 
-## Topic Folder Convention
+## Artifact Directory
 
-All artifacts are saved under `topics/<topic>/`. Before the first save in a session:
-
-1. Scan `topics/` for existing folders.
-2. If one matches the current topic, propose reusing it: "I'll save to `topics/<folder>/` — sound right?"
-3. If none match, derive a 2-4 word hyphenated folder name from the topic and propose it.
-4. Create the directory on user confirmation.
-
-All file paths in this skill use `topics/<topic>/` as the root.
+Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

@@ -5,7 +5,7 @@ description: Use when you need to communicate design work to a specific audience
 
 ## Phase 1 — Gather
 
-Read the artifacts the user points to — session notes, briefs, concepts, wireframes, scope docs. Scan `topics/` for related context that adds depth.
+Read the artifacts the user points to — session notes, briefs, concepts, wireframes, scope docs. Scan `artifacts/` (and one level of subfolders) for related context that adds depth.
 
 Then ask (one question per `AskUserQuestion` or `requestUserInput` call, never batch):
 
@@ -80,25 +80,18 @@ Common refinement axes: tone (too formal/informal), length (cut or expand), emph
 When the user is satisfied, save.
 
 **Save to:**
-- One-pager: `topics/<topic>/pitch-<slug>.md`
-- Async message: `topics/<topic>/pitch-<slug>.md`
-- Ticket/story: `topics/<topic>/ticket-<slug>.md`
-- Talking points: `topics/<topic>/pitch-<slug>.md`
+- One-pager: `artifacts/pitch-<descriptive-name>.md`
+- Async message: `artifacts/pitch-<descriptive-name>.md`
+- Ticket/story: `artifacts/ticket-<descriptive-name>.md`
+- Talking points: `artifacts/pitch-<descriptive-name>.md`
 
-Start the file with an H1 title: `# Pitch: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the slug from the core topic — 2-4 hyphenated words.
+Start the file with an H1 title: `# Pitch: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the descriptive name from the core topic — 2-4 hyphenated words.
 
 **Anti-pattern: "Just clean up my notes."** This skill reframes, it doesn't summarize. If the output reads like a shorter version of the input, the pitch failed. The reader has a different mental model — the pitch restructures information for their brain, not yours.
 
-## Topic Folder Convention
+## Artifact Directory
 
-All artifacts are saved under `topics/<topic>/`. Before the first save in a session:
-
-1. Scan `topics/` for existing folders.
-2. If one matches the current topic, propose reusing it: "I'll save to `topics/<folder>/` — sound right?"
-3. If none match, derive a 2-4 word hyphenated folder name from the topic and propose it.
-4. Create the directory on user confirmation.
-
-All file paths in this skill use `topics/<topic>/` as the root.
+Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

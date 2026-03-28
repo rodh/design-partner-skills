@@ -5,7 +5,7 @@ description: Use when you need to explore a problem space and generate genuinely
 
 ## Phase 1 — Frame
 
-Ingest everything provided — tickets, notes, screenshots, URLs, or a verbal description of the problem space. Before asking questions, scan `topics/*/brief-*.md`, `topics/*/concept-*.md`, and `topics/` for relevant context: existing briefs, concepts, READMEs, docs, or prior work related to the topic. Skim — don't deep-read. Use what you find to ask sharper questions. If nothing relevant exists, proceed from the user's input alone.
+Ingest everything provided — tickets, notes, screenshots, URLs, or a verbal description of the problem space. Before asking questions, scan `artifacts/**/brief-*.md`, `artifacts/**/concept-*.md`, and CWD for relevant context: existing briefs, concepts, READMEs, docs, or prior work related to the topic. Skim — don't deep-read. Use what you find to ask sharper questions. If nothing relevant exists, proceed from the user's input alone.
 
 After ingesting, identify what's missing that would materially change the directions you'd generate. Don't assess against a fixed checklist — different problems have different shapes. The test is: **would knowing this change what I produce in Phase 2?**
 
@@ -41,7 +41,7 @@ When questioning is complete, produce a compact **problem brief**.
 
 **Stop and wait** for explicit approval before saving.
 
-Save the problem brief to `topics/<topic>/brief-<slug>.md` (e.g., `topics/onboarding-flow/brief-onboarding-flow.md`). Derive the slug from the core problem — keep it to 2–4 hyphenated words. Start the file with an H1 title: `# Brief: <descriptive title>` (e.g., `# Brief: Onboarding Flow for Enterprise Users`). Then move to Phase 2.
+Save the problem brief to `artifacts/brief-<descriptive-name>.md` (e.g., `artifacts/brief-onboarding-flow.md`). Derive the descriptive name from the core problem — keep it to 2–4 hyphenated words. Start the file with an H1 title: `# Brief: <descriptive title>` (e.g., `# Brief: Onboarding Flow for Enterprise Users`). Then move to Phase 2.
 
 ## Phase 2 — Generate
 
@@ -75,22 +75,15 @@ The user points at directions that catch their eye. For each selected direction:
 - Surface the **key design tensions** specific to this direction
 - Note **what would need to be true** for this to work
 
-If asked to save, write to `topics/<topic>/concept-<slug>.md` (reuse the slug from the brief). Start the file with an H1 title summarizing the concept (e.g., `# Concept: Progressive Disclosure Onboarding`). Keep format simple.
+If asked to save, write to `artifacts/concept-<descriptive-name>.md`. Derive the descriptive name from the concept's focus — 2–4 hyphenated words. Start the file with an H1 title summarizing the concept (e.g., `# Concept: Progressive Disclosure Onboarding`). Keep format simple.
 
 The user drives convergence. Don't pick winners — give enough material to pick well.
 
 **Anti-pattern: "The first direction is clearly right."** If one direction feels obviously correct before generation, you haven't pushed the range far enough. The obvious direction gets included, but it should have genuine competition. The value of this skill is in directions you wouldn't have considered — if generation just confirms the obvious, it failed.
 
-## Topic Folder Convention
+## Artifact Directory
 
-All artifacts are saved under `topics/<topic>/`. Before the first save in a session:
-
-1. Scan `topics/` for existing folders.
-2. If one matches the current topic, propose reusing it: "I'll save to `topics/<folder>/` — sound right?"
-3. If none match, derive a 2-4 word hyphenated folder name from the topic and propose it.
-4. Create the directory on user confirmation.
-
-All file paths in this skill use `topics/<topic>/` as the root.
+Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

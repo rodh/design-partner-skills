@@ -5,7 +5,7 @@ description: Use when you're facing a decision, something feels off, or you want
 
 ## 1. Read context
 
-Scan CWD for context related to the topic: code, docs, existing `topics/*/reasoning-*.md` sessions, `topics/*/research-*.md` artifacts, `topics/*/orient-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
+Scan CWD for context related to the topic: code, docs, existing `artifacts/**/reasoning-*.md` sessions, `artifacts/**/research-*.md` artifacts, `artifacts/**/orient-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
 
 ## 2. Frame
 
@@ -57,7 +57,7 @@ If no changes needed: skip to Capture.
 
 ## 5. Capture
 
-Write a session note to `topics/<topic>/reasoning-YYYY-MM-DD-<slug>.md`, where `<slug>` is 2–4 hyphenated words derived from the framed question (e.g., `topics/auth-tokens/reasoning-2026-03-24-auth-token-expiry.md`).
+Write a session note to `artifacts/reasoning-<descriptive-name>.md`, where `<descriptive-name>` is 2–4 hyphenated words describing the artifact's focus (e.g., `artifacts/reasoning-auth-token-expiry.md`).
 
 Start the file with an H1 title in the format `# Reasoning: <title>`, where `<title>` summarizes the session content. Example: `# Reasoning: Should we expire auth tokens on role change?`
 
@@ -72,16 +72,9 @@ Start the file with an H1 title in the format `# Reasoning: <title>`, where `<ti
 
 **Anti-pattern: "This doesn't need structured thinking."** The temptation to skip framing is strongest on decisions that feel obvious. Those are exactly where unexamined assumptions do the most damage. The frame can be two sentences, but it must exist.
 
-## Topic Folder Convention
+## Artifact Directory
 
-All artifacts are saved under `topics/<topic>/`. Before the first save in a session:
-
-1. Scan `topics/` for existing folders.
-2. If one matches the current topic, propose reusing it: "I'll save to `topics/<folder>/` — sound right?"
-3. If none match, derive a 2-4 word hyphenated folder name from the topic and propose it.
-4. Create the directory on user confirmation.
-
-All file paths in this skill use `topics/<topic>/` as the root.
+Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

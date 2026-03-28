@@ -5,7 +5,7 @@ description: Use when you need to break down and map a ticket, task, or project 
 
 ## 1. Scope
 
-Ingest context from `$ARGUMENTS` — tickets, docs, task descriptions, conversation threads, flows. Scan CWD for related code, docs, existing `topics/*/orient-*.md` artifacts, `topics/*/reasoning-*.md` sessions, `topics/*/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already covers this, surface it instead of re-decomposing.
+Ingest context from `$ARGUMENTS` — tickets, docs, task descriptions, conversation threads, flows. Scan CWD for related code, docs, existing `artifacts/**/orient-*.md` artifacts, `artifacts/**/reasoning-*.md` sessions, `artifacts/**/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already covers this, surface it instead of re-decomposing.
 
 Classify:
 
@@ -42,7 +42,7 @@ Or suggest `/next-move-partner` to help the user decide what's next.
 
 ## 4. Save
 
-Save to `topics/<topic>/orient-YYYY-MM-DD-<slug>.md` with:
+Save to `artifacts/orient-<descriptive-name>.md` with:
 
 - H1 title: `# Orient: <title>` summarizing what was decomposed
 - Date
@@ -58,16 +58,9 @@ The artifact must be **self-contained** — readable without conversation contex
 
 **Anti-pattern: "I already understand this."** The temptation to skip decomposition is strongest on tasks that look straightforward. Those are exactly where hidden design complexity and unstated assumptions do the most damage. The decomposition can be compact, but it must exist.
 
-## Topic Folder Convention
+## Artifact Directory
 
-All artifacts are saved under `topics/<topic>/`. Before the first save in a session:
-
-1. Scan `topics/` for existing folders.
-2. If one matches the current topic, propose reusing it: "I'll save to `topics/<folder>/` — sound right?"
-3. If none match, derive a 2-4 word hyphenated folder name from the topic and propose it.
-4. Create the directory on user confirmation.
-
-All file paths in this skill use `topics/<topic>/` as the root.
+Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 
