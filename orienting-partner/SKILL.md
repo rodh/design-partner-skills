@@ -31,6 +31,7 @@ Four-part analysis:
 
 Present a scoped problem statement with 2-3 labeled next moves reflecting the actual situation. Suggest downstream skills as appropriate:
 
+- Planning what design work to do for a larger initiative (`/strategy-partner` if available)
 - Thinking through a decision, tradeoff, or stress-testing assumptions (`/thinking-partner` if available)
 - Deeper investigation into unknowns (`/research-partner` if available)
 - Exploring solution directions (`/ideation-partner` if available)

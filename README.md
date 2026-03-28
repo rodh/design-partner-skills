@@ -6,6 +6,8 @@ AI coding agent skills for the design framing loop — reason through decisions,
 
 **`/orienting-partner`** — Understand a ticket, task, or project context. Decomposes problems into constituent parts, maps the landscape, identifies hidden design complexity, and signals level of effort. Produces understanding; downstream skills produce action.
 
+**`/strategy-partner`** — Plan what design work to do for an initiative. Takes any input — orient artifact, ticket, PRD, verbal description — and produces a prioritized design action plan organized into parallel workstreams, with strategic questions surfaced as reasoning behind the actions.
+
 **`/research-partner`** — Look into a topic: competitor patterns, technical approaches, how something works, or focused factual questions. Produces self-contained research artifacts that feed into reasoning, ideation, and scoping.
 
 **`/thinking-partner`** — Think something through: a decision, a hunch, a tradeoff, a strategy question, or anything that needs structured clarity before action. Calibrates depth and selects from composable analytical moves to match what you bring it.
@@ -21,11 +23,11 @@ AI coding agent skills for the design framing loop — reason through decisions,
 The skills follow a natural design progression, though you can enter at any point:
 
 ```
-Orient →  Research →  Think  →  Ideate →   Scope →  Pitch
-(map)     (learn)     (think)   (explore)  (plan)   (share)
+Orient → Strategize → Research → Think  → Ideate →  Scope →  Pitch
+(map)    (plan)       (learn)    (think)  (explore) (build)  (share)
 ```
 
-**Orient** maps the problem. **Research** fills knowledge gaps. **Thinking** works through decisions, hunches, tradeoffs, and assumptions. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Pitch** communicates the result.
+**Orient** maps the problem. **Strategize** plans what design work to do. **Research** fills knowledge gaps. **Thinking** works through decisions, hunches, tradeoffs, and assumptions. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Pitch** communicates the result.
 
 ## Install
 
