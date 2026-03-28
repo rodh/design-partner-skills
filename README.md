@@ -4,7 +4,7 @@ AI coding agent skills for the design framing loop — reason through decisions,
 
 ## Skills
 
-**`/orient-partner`** — Understand a ticket, task, or project context. Decomposes problems into constituent parts, maps the landscape, identifies hidden design complexity, and signals level of effort. Produces understanding; downstream skills produce action.
+**`/orienting-partner`** — Understand a ticket, task, or project context. Decomposes problems into constituent parts, maps the landscape, identifies hidden design complexity, and signals level of effort. Produces understanding; downstream skills produce action.
 
 **`/research-partner`** — Look into a topic: competitor patterns, technical approaches, how something works, or focused factual questions. Produces self-contained research artifacts that feed into reasoning, ideation, and scoping.
 

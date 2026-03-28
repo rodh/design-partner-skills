@@ -58,7 +58,7 @@ If the user has a different instinct, respect it. This skill advises — it does
 - Be direct. Status map + one recommendation + suggested invocation. No preamble.
 - This is a diagnostic, not a workflow. Fast in, fast out.
 - Don't deep-read artifacts — skim titles and structure to assess completeness.
-- If nothing exists yet, say so and recommend starting with `/orient-partner` to understand the problem, `/thinking-partner` to think through a decision, or `/ideation-partner` if the problem is already clear.
+- If nothing exists yet, say so and recommend starting with `/orienting-partner` to understand the problem, `/thinking-partner` to think through a decision, or `/ideation-partner` if the problem is already clear.
 - If multiple moves are equally high-value, say so and let the user choose. Don't force a single recommendation when the situation is genuinely ambiguous.
 
 $ARGUMENTS

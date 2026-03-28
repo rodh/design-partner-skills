@@ -44,7 +44,7 @@ If the request is ambiguous about what kind of thinking is needed, ask one quest
 
 Calibration is a proposal, not a gate. If the user wants to skip straight to thinking, let them — but restate depth/shape so both sides know the plan.
 
-**Not for:** understanding a problem (`/orient-partner`), investigating facts (`/research-partner`), or generating divergent directions (`/ideation-partner`). Thinking-partner is for when context exists and you need to reason through it.
+**Not for:** understanding a problem (`/orienting-partner`), investigating facts (`/research-partner`), or generating divergent directions (`/ideation-partner`). Thinking-partner is for when context exists and you need to reason through it.
 
 **Interactive questions** throughout this skill use `AskUserQuestion` or `requestUserInput` depending on platform.
 
