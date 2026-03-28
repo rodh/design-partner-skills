@@ -32,6 +32,18 @@ Sense — Strategize — Ideate — Scope — Share
 
 **Research** fills knowledge gaps and **Thinking** works through decisions, hunches, tradeoffs, and assumptions — both available at any stage of the flow.
 
+## Principles
+
+**Conversation, not generation** — Skills pause at deliberate moments and ask one question at a time. The user drives convergence; the skill structures the dialogue.
+
+**Composable by design** — Skills connect through artifacts. Sensemaking feeds strategy; strategy feeds ideation; a chosen concept feeds scoping. Each skill scans for existing work and builds on it rather than starting from scratch.
+
+**Artifacts over conversations** — Every skill produces self-contained artifacts readable without conversation context. Outputs persist across sessions, travel across teams, and feed into downstream skills.
+
+**Honest boundaries** — Skills state what they're not for, redirect to the right one, and name what typically goes wrong. If sensemaking would serve better than strategy, the skill says so. If the first direction feels obviously right, it means you haven't pushed range far enough.
+
+**Calibrated depth** — Questions and rigor scale to the problem. Skills probe until answers stop changing the output, then move on — no fixed checklists, no gates.
+
 ## Install
 
 ```bash
