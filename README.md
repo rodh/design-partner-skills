@@ -23,11 +23,9 @@ AI coding agent skills for the design framing loop — reason through decisions,
 The skills form two layers:
 
 ```
-Sense → Strategize → Ideate → Scope → Pitch
-    ←— general flow, enter anywhere —→
-
-
-      Support → Research · Thinking
+Sense — Strategize — Ideate — Scope — Pitch
+                     |
+            Research · Thinking
 ```
 
 **Sensemaking** maps the problem. **Strategize** plans what design work to do. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Pitch** communicates the result.
