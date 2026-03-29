@@ -18,27 +18,13 @@ AI agent skills for the design framing loop — reason through decisions, explor
 
 **`/thinking-partner`** — Think something through: a decision, a hunch, a tradeoff, a strategy question, or anything that needs structured clarity before action. Calibrates depth and selects from composable analytical moves to match what you bring it.
 
-## How they fit together
-
-The skills form two layers:
+### How they fit together
 
 ```
 Sense — Strategize — Ideate — Scope — Share
                      |
             Research · Thinking
 ```
-
-**Sensemaking** maps the problem. **Strategize** plans what design work to do. **Ideation** generates divergent directions. **Scoping** breaks a chosen direction into buildable tiers. **Share** communicates the result.
-
-**Research** fills knowledge gaps and **Thinking** works through decisions, hunches, tradeoffs, and assumptions — both available at any stage of the flow.
-
-## Principles
-
-**Conversation, not generation** — Skills pause at deliberate moments and ask one question at a time. The user drives convergence; the skill structures the dialogue.
-
-**Composable by design** — Skills connect through artifacts. Sensemaking feeds strategy; strategy feeds ideation; a chosen concept feeds scoping. Each skill scans for existing work and builds on it rather than starting from scratch.
-
-**Artifacts over conversations** — Every skill produces self-contained artifacts in `artifacts/`, readable without conversation context. Outputs persist across sessions and travel across teams.
 
 ## Install
 
