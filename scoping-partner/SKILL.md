@@ -64,7 +64,7 @@ Present all tickets. **Stop and wait** for feedback before saving.
 
 ## Phase 5 — Capture
 
-Save to `artifacts/scope-<descriptive-name>.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
+Save to `artifacts/<descriptive-name>--scope.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
 
 Start the file with an H1 title: `# Scope: <descriptive title>` (e.g., `# Scope: Onboarding Flow MVP`).
 

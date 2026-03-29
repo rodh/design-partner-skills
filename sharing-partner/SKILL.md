@@ -80,10 +80,10 @@ Common refinement axes: tone (too formal/informal), length (cut or expand), emph
 When the user is satisfied, save.
 
 **Save to:**
-- One-pager: `artifacts/sharing-<descriptive-name>.md`
-- Async message: `artifacts/sharing-<descriptive-name>.md`
-- Ticket/story: `artifacts/ticket-<descriptive-name>.md`
-- Talking points: `artifacts/sharing-<descriptive-name>.md`
+- One-pager: `artifacts/<descriptive-name>--sharing.md`
+- Async message: `artifacts/<descriptive-name>--sharing.md`
+- Ticket/story: `artifacts/<descriptive-name>--ticket.md`
+- Talking points: `artifacts/<descriptive-name>--sharing.md`
 
 Start the file with an H1 title: `# Sharing: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the descriptive name from the core topic — 2-4 hyphenated words.
 

@@ -57,7 +57,7 @@ Note open questions that could change the plan — places where new information 
 
 ## Phase 5 — Capture
 
-Save to `artifacts/strategy-<descriptive-name>.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
+Save to `artifacts/<descriptive-name>--strategy.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
 
 Start the file with an H1 title: `# Strategy: <title>` (e.g., `# Strategy: Onboarding Redesign`).
 

@@ -5,7 +5,7 @@ description: Use when you need to research a topic — look into competitor patt
 
 ## 1. Scope
 
-Ingest the research question from `$ARGUMENTS`. Scan CWD for context related to the topic: code, docs, existing `artifacts/**/research-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already answers the question, surface it instead of re-researching.
+Ingest the research question from `$ARGUMENTS`. Scan CWD for context related to the topic: code, docs, existing `artifacts/**/*--research.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already answers the question, surface it instead of re-researching.
 
 Classify depth:
 
@@ -41,7 +41,7 @@ Present the summary. **Stop and wait** for the user to confirm before saving.
 
 ## 4. Save
 
-Save to `artifacts/research-<descriptive-name>.md` with:
+Save to `artifacts/<descriptive-name>--research.md` with:
 
 - H1 title: `# Research: <title>` summarizing the research question
 - Date

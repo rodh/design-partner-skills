@@ -5,7 +5,7 @@ description: Use when you need to think something through — weighing options, 
 
 ## 1. Read context
 
-Scan CWD for context related to the topic: code, docs, existing `artifacts/**/thinking-*.md` sessions, `artifacts/**/research-*.md` artifacts, `artifacts/**/sense-*.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
+Scan CWD for context related to the topic: code, docs, existing `artifacts/**/*--thinking.md` sessions, `artifacts/**/*--research.md` artifacts, `artifacts/**/*--sense.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
 
 ## 2. Frame
 
@@ -72,7 +72,7 @@ If no changes needed: skip to Capture.
 
 ## 5. Capture
 
-Write a session note to `artifacts/thinking-<descriptive-name>.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus (e.g., `artifacts/thinking-auth-token-expiry.md`).
+Write a session note to `artifacts/<descriptive-name>--thinking.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus (e.g., `artifacts/auth-token-expiry--thinking.md`).
 
 Start the file with an H1 title in the format `# Thinking: <title>`, where `<title>` summarizes the session content.
 

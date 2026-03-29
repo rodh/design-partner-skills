@@ -5,7 +5,7 @@ description: Use when you need to explore a problem space and generate genuinely
 
 ## Phase 1 — Frame
 
-Ingest everything provided — tickets, notes, screenshots, URLs, or a verbal description of the problem space. Before asking questions, scan `artifacts/**/brief-*.md`, `artifacts/**/concept-*.md`, and CWD for relevant context: existing briefs, concepts, READMEs, docs, or prior work related to the topic. Skim — don't deep-read. Use what you find to ask sharper questions. If nothing relevant exists, proceed from the user's input alone.
+Ingest everything provided — tickets, notes, screenshots, URLs, or a verbal description of the problem space. Before asking questions, scan `artifacts/**/*--brief.md`, `artifacts/**/*--concept.md`, and CWD for relevant context: existing briefs, concepts, READMEs, docs, or prior work related to the topic. Skim — don't deep-read. Use what you find to ask sharper questions. If nothing relevant exists, proceed from the user's input alone.
 
 After ingesting, identify what's missing that would materially change the directions you'd generate. Don't assess against a fixed checklist — different problems have different shapes. The test is: **would knowing this change what I produce in Phase 2?**
 
@@ -41,7 +41,7 @@ When questioning is complete, produce a compact **problem brief**.
 
 **Stop and wait** for explicit approval before saving.
 
-Save the problem brief to `artifacts/brief-<descriptive-name>.md` (e.g., `artifacts/brief-onboarding-flow.md`). Derive the descriptive name from the core problem — keep it to 2–4 hyphenated words. Start the file with an H1 title: `# Brief: <descriptive title>` (e.g., `# Brief: Onboarding Flow for Enterprise Users`). Then move to Phase 2.
+Save the problem brief to `artifacts/<descriptive-name>--brief.md` (e.g., `artifacts/onboarding-flow--brief.md`). Derive the descriptive name from the core problem — keep it to 2–4 hyphenated words. Start the file with an H1 title: `# Brief: <descriptive title>` (e.g., `# Brief: Onboarding Flow for Enterprise Users`). Then move to Phase 2.
 
 ## Phase 2 — Generate
 
@@ -75,7 +75,7 @@ The user points at directions that catch their eye. For each selected direction:
 - Surface the **key design tensions** specific to this direction
 - Note **what would need to be true** for this to work
 
-If asked to save, write to `artifacts/concept-<descriptive-name>.md`. Derive the descriptive name from the concept's focus — 2–4 hyphenated words. Start the file with an H1 title summarizing the concept (e.g., `# Concept: Progressive Disclosure Onboarding`). Keep format simple.
+If asked to save, write to `artifacts/<descriptive-name>--concept.md`. Derive the descriptive name from the concept's focus — 2–4 hyphenated words. Start the file with an H1 title summarizing the concept (e.g., `# Concept: Progressive Disclosure Onboarding`). Keep format simple.
 
 The user drives convergence. Don't pick winners — give enough material to pick well.
 
