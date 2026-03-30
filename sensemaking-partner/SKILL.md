@@ -5,7 +5,7 @@ description: Use when you need to build structured understanding from a ticket, 
 
 ## 1. Scope
 
-Ingest context from `$ARGUMENTS` — tickets, docs, task descriptions, conversation threads, flows. Scan CWD for related code, docs, existing `artifacts/**/*--sense.md` artifacts, `artifacts/**/*--thinking.md` sessions, `artifacts/**/*--research.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already covers this, surface it instead of re-decomposing.
+Ingest context from `$ARGUMENTS` — tickets, docs, task descriptions, conversation threads, flows. Scan CWD for related code, docs, existing `design-artifacts/**/*--sense.md` artifacts, `design-artifacts/**/*--thinking.md` sessions, `design-artifacts/**/*--research.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already covers this, surface it instead of re-decomposing.
 
 Classify:
 
@@ -41,7 +41,7 @@ Present a scoped problem statement with 2-3 labeled next moves reflecting the ac
 
 ## 4. Save
 
-Save to `artifacts/<descriptive-name>--sense.md` with:
+Save to `design-artifacts/<descriptive-name>--sense.md` with:
 
 - H1 title: `# Sensemaking: <title>` summarizing what was decomposed
 - Date
@@ -59,7 +59,7 @@ The artifact must be **self-contained** — readable without conversation contex
 
 ## Artifact Directory
 
-Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
+Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

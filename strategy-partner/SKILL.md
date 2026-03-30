@@ -5,7 +5,7 @@ description: Use when you have an initiative, ticket, or brief and need to plan 
 
 ## Phase 1 — Ingest
 
-Scan `artifacts/` (and one level of subfolders) for existing work — sensemaking artifacts, research artifacts, thinking sessions, briefs, concepts. Read whatever input is provided: sensemaking artifact, ticket, PRD, notes, verbal description. Assess what exists vs. what's missing. If the input is too thin to plan from, name what's needed rather than guessing.
+Scan `design-artifacts/` (and one level of subfolders) for existing work — sensemaking artifacts, research artifacts, thinking sessions, briefs, concepts. Read whatever input is provided: sensemaking artifact, ticket, PRD, notes, verbal description. Assess what exists vs. what's missing. If the input is too thin to plan from, name what's needed rather than guessing.
 
 ## Phase 2 — Frame
 
@@ -57,7 +57,7 @@ Note open questions that could change the plan — places where new information 
 
 ## Phase 5 — Capture
 
-Save to `artifacts/<descriptive-name>--strategy.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
+Save to `design-artifacts/<descriptive-name>--strategy.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
 
 Start the file with an H1 title: `# Strategy: <title>` (e.g., `# Strategy: Onboarding Redesign`).
 
@@ -77,7 +77,7 @@ The artifact must be **self-contained** — readable without conversation contex
 
 ## Artifact Directory
 
-Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
+Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

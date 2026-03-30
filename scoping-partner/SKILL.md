@@ -5,7 +5,7 @@ description: Use when you have a chosen direction and need to break it into prio
 
 ## Phase 1 — Understand
 
-Read the concept, brief, wireframes, or other artifacts the user points to. Scan `artifacts/` (and one level of subfolders) for related context — prior sensemaking or thinking sessions, research, test results — that informs scope decisions.
+Read the concept, brief, wireframes, or other artifacts the user points to. Scan `design-artifacts/` (and one level of subfolders) for related context — prior sensemaking or thinking sessions, research, test results — that informs scope decisions.
 
 Ask clarifying questions (one per `AskUserQuestion` or `requestUserInput` call, never batch). The test for each question: **would knowing this change how I'd scope this?** Stop when answers stop changing your thinking.
 
@@ -64,7 +64,7 @@ Present all tickets. **Stop and wait** for feedback before saving.
 
 ## Phase 5 — Capture
 
-Save to `artifacts/<descriptive-name>--scope.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
+Save to `design-artifacts/<descriptive-name>--scope.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
 
 Start the file with an H1 title: `# Scope: <descriptive title>` (e.g., `# Scope: Onboarding Flow MVP`).
 
@@ -79,7 +79,7 @@ Structure:
 
 ## Artifact Directory
 
-Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
+Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 

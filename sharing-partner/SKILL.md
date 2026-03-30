@@ -5,7 +5,7 @@ description: Use when you need to communicate design work to a specific audience
 
 ## Phase 1 — Gather
 
-Read the artifacts the user points to — session notes, briefs, concepts, wireframes, scope docs. Scan `artifacts/` (and one level of subfolders) for related context that adds depth.
+Read the artifacts the user points to — session notes, briefs, concepts, wireframes, scope docs. Scan `design-artifacts/` (and one level of subfolders) for related context that adds depth.
 
 Then ask (one question per `AskUserQuestion` or `requestUserInput` call, never batch):
 
@@ -80,10 +80,10 @@ Common refinement axes: tone (too formal/informal), length (cut or expand), emph
 When the user is satisfied, save.
 
 **Save to:**
-- One-pager: `artifacts/<descriptive-name>--sharing.md`
-- Async message: `artifacts/<descriptive-name>--sharing.md`
-- Ticket/story: `artifacts/<descriptive-name>--ticket.md`
-- Talking points: `artifacts/<descriptive-name>--sharing.md`
+- One-pager: `design-artifacts/<descriptive-name>--sharing.md`
+- Async message: `design-artifacts/<descriptive-name>--sharing.md`
+- Ticket/story: `design-artifacts/<descriptive-name>--ticket.md`
+- Talking points: `design-artifacts/<descriptive-name>--sharing.md`
 
 Start the file with an H1 title: `# Sharing: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the descriptive name from the core topic — 2-4 hyphenated words.
 
@@ -91,7 +91,7 @@ Start the file with an H1 title: `# Sharing: <descriptive title>` (or `# Ticket:
 
 ## Artifact Directory
 
-Skills save artifacts to `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
+Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders.
 
 ## Rules
 
