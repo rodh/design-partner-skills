@@ -16,6 +16,10 @@ Identify from the artifact:
 
 If the flow contains multiple distinct tasks, list them and ask which to test. If the task isn't discernible from the artifact, ask.
 
+If the flow is too abstract to walk through step by step (no clear screens, no clear states), say so — suggest `/ideation-partner` or `/scoping-partner` to develop it further before testing.
+
+**Not for:** evaluating concept viability before a flow exists (`/thinking-partner`), generating alternative approaches (`/ideation-partner`), or assessing strategy (`/strategy-partner`). Testing-partner tests task completion through a defined flow.
+
 If the flow and task are clear, proceed directly to Phase 2 without stopping.
 
 ## 2. Personas
@@ -34,11 +38,11 @@ If not found, generate 2 personas from the upstream artifacts and the flow itsel
 - **Behavior:** {one navigation trait — e.g., "reads every label before acting" or "clicks the most prominent element immediately"}
 ```
 
-Present personas. **Stop and wait** for confirmation before proceeding.
+Present personas. **Stop and wait** for confirmation before proceeding. If the user says "just go" or similar, move on immediately with the personas as presented.
 
 ## 3. Test
 
-Simulate each persona walking through the flow step by step. For each persona, reason through what they would do at each screen or state — what they'd tap, what they'd read, what they'd skip, where they'd hesitate, what they'd expect to happen. This walkthrough is your raw material; do not output it.
+Simulate each persona walking through the flow step by step. For each persona, reason through what they would do at each screen or state — what they'd tap, what they'd read, what they'd skip, where they'd hesitate, what they'd expect to happen. This walkthrough is your raw material; do not output it unless the user asks to see it.
 
 Synthesize into:
 
@@ -57,7 +61,7 @@ Organize into three subsections (omit any that would be empty):
 
 - **Resolved from prior testing:** Items addressed since the last test. Preserve original `UT-{n}` IDs. (Empty on first run.)
 - **Remaining issues:** Items still present from prior tests. Preserve IDs. (Empty on first run.)
-- **New findings:** Issues found in this round. On first run, all items go here. On subsequent runs, continue numbering from max prior ID + 1.
+- **New findings:** Issues found in this round. On first run, all items go here. On subsequent runs, continue numbering from max prior ID + 1. If the flow was substantially redesigned, mark all prior items as resolved and start fresh.
 
 ### What works
 
@@ -69,7 +73,9 @@ Short list of what the flow does well, grounded in persona behavior:
 
 ### Highest-impact fix
 
-One bolded recommendation — the single change that would unblock the most personas or remove the most friction. 2-3 bullets on what it accomplishes. If the problem is upstream (the flow solves the wrong problem, the information architecture is off), say so.
+One bolded recommendation — the single change that would unblock the most personas or remove the most friction. 2-3 bullets on what it accomplishes. If the problem is upstream (the flow solves the wrong problem, the information architecture is off), say so and name the relevant skill (`/thinking-partner`, `/strategy-partner`).
+
+**Self-review:** Before presenting, check that every finding names a specific persona at a specific step. Remove any that don't.
 
 Present the results. **Stop and wait** before proceeding.
 
@@ -84,28 +90,14 @@ Results stay in chat by default. After presenting, offer:
 
 **If A:** End.
 
-**If B:** Save to `design-artifacts/<descriptive-name>--testing.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the flow's focus (e.g., `design-artifacts/onboarding-flow--testing.md`).
-
-Start the file with an H1 title: `# Testing: <title>`.
-
-Structure:
-
-- **Flow tested** — what was tested, with reference to source
-- **Task** — what personas attempted to accomplish
-- **Personas** — who tested
-- **Findings** — resolved, remaining, new (with `UT-{n}` IDs and severity)
-- **What works** — confirmed strengths
-- **Highest-impact fix** — single most impactful recommendation
-- **Open threads** — anything surfaced but not resolved
-
-The artifact must be **self-contained** — readable without conversation context.
+**If B:** Save to `design-artifacts/<descriptive-name>--testing.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the flow's focus (e.g., `design-artifacts/onboarding-flow--testing.md`). Start the file with `# Testing: <title>`. Include the Phase 3 output (Findings, What works, Highest-impact fix) plus: Flow tested (with reference to source), Task, Personas, and Open threads. The artifact must be **self-contained** — readable without conversation context.
 
 **If C:** Append to the source file under a horizontal rule:
 
 ```
 ---
 
-## Simulated testing — {date}
+## Simulated testing — {YYYY-MM-DD}
 
 ### Findings
 - **UT-1.** ...
@@ -123,6 +115,8 @@ Keep the appended section compressed — session details live in chat, the appen
 
 **Anti-pattern: "Testing the concept, not the flow."** This skill tests task completion through a specific sequence of steps. If the flow is too abstract to walk through step by step (no clear screens, no clear states), say so — the artifact needs more definition before it can be tested.
 
+**Anti-pattern: "Inventing screens that aren't there."** If the wireframe has gaps (no error state, no empty state, no edge case), flag the missing screen as a finding — do not fabricate what it would look like and test the fabrication.
+
 ## Artifact Directory
 
 Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders. Before writing, check if an artifact already exists at the target path. If it does, read it — the current run's output should reflect awareness of prior work, not blindly replace it.
@@ -130,10 +124,8 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 ## Rules
 
 - Be direct. No preamble, no filler.
-- Every finding is grounded in a specific persona's behavior at a specific step. No generic usability advice.
 - Severity matters. Blockers first, friction second, minor last.
 - `UT-{n}` IDs are stable across iterations. Never renumber resolved or remaining items.
-- If the artifact is too abstract to simulate task completion (no clear steps, no clear states), say so — the artifact needs more definition before testing.
 - Results print in chat by default. Only save when the user asks.
 - Artifacts must be self-contained. Someone reading the file with no conversation context should understand the test results.
 - When the source flow has multiple tasks, test one at a time. Offer to test additional tasks after the first round completes.
