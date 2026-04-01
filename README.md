@@ -18,14 +18,14 @@ AI agent skills for design work — reason through decisions, explore problem sp
 
 **`/thinking-partner`** — Think something through: a decision, a hunch, a tradeoff, a strategy question, or anything that needs structured clarity before action. Calibrates depth and selects from composable analytical moves to match what you bring it.
 
-**`/critique-partner`** — Evaluate a design artifact against its stated intent and constraints. Takes any output — concept, scope doc, sharing draft — and assesses where it delivers, where it gaps, and what to do about it. Optionally applies general design heuristics on request.
+**`/testing-partner`** — Simulate lightweight user testing on a wireframe or flow. Generates personas, walks each through the flow step by step, and reports where they complete tasks, where they struggle, and where they drop off. Results stay in chat by default with an option to save.
 
 ### How they fit together
 
 ```
 Sense — Strategize — Ideate — Scope — Share
                      |
-          Research · Thinking · Critique
+          Research · Thinking · Testing
 ```
 
 ## Install
