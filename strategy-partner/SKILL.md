@@ -32,6 +32,8 @@ Then provocations from the toolkit below. **No cap on number.** Run as many as g
 
 The rule is: **every provocation must meaningfully change what the workstream and Start Here look like.** If a provocation wouldn't change anything downstream, don't raise it.
 
+**Don't re-raise probes the sense artifact already resolved.** Before surfacing a challenge, check the sense artifact's `Probes` section. If sensemaking already raised and resolved that challenge with the user, don't re-litigate it — assume the resolution holds and move on. Only raise it again if you have new evidence that the prior resolution was wrong.
+
 **Toolkit** (use what fits, ignore what doesn't):
 
 - **Slice challenge** — "The slice is X, but Y looks like it might actually be load-bearing. Revisit?"
@@ -51,7 +53,7 @@ Skip this phase only if calibration is set to "just go."
 
 Restate the initiative in one sentence. Reflect any reframing the Probe phase produced.
 
-**Pull the design surfaces and slice directly from the sense artifact** (with any Probe-driven adjustments). Do not re-derive them. Quote the artifact's surface list and slice, then confirm:
+**Pull the design surfaces and slice directly from the sense artifact** (with any Probe-driven adjustments). Do not re-derive them. Design surfaces live inside the sense artifact's `Decomposition` section (under "Design surface"); the slice lives in its standalone `Slice` section. Quote both, then confirm:
 
 > "From `<sense artifact path>`, working with these surfaces: [list]. Slice: [slice]. Probe adjustments: [list, or 'none']. Confirm or adjust."
 
