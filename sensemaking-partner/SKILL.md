@@ -43,9 +43,9 @@ The rule is: **every provocation must meaningfully change what the decomposition
 - **Hidden-assumption challenge** — "This only makes sense if you assume X. Is X actually true here?"
 - **Wrong-ticket challenge** — "I think this is the wrong cut of the problem. The real ask might be P. Worth re-scoping?"
 
-Format each probe as a numbered observation with a clear question. Make it easy for the user to respond probe-by-probe.
+Ask probes **one at a time** via `AskUserQuestion` (Claude Code) or `requestUserInput` (Codex). Do not batch them into a numbered list. Frame each as a single observation + question, wait for the answer, then decide whether the next probe still applies given what the user just said — sometimes one answer collapses two probes into none.
 
-**Stop and wait** for the user's reactions. Their answers reshape everything downstream — Decompose and Slice both run on the post-Probe understanding.
+Their answers reshape everything downstream — Decompose and Slice both run on the post-Probe understanding.
 
 Skip this phase only if calibration is set to "just go."
 
@@ -74,14 +74,14 @@ Pick the **load-bearing** part from the decomposition — the one whose answer m
 - **Why this one** — what it unblocks, what it teaches, what it lets you defer
 - **Parked for later** — the other parts, each with a one-line note on why they can wait
 
-Then a labeled pause:
+Then ask via `AskUserQuestion` / `requestUserInput` with these labeled options:
 
 - **A** — accept the slice, proceed
 - **B** — different slice — pick from the parked list
 - **C** — the slice is too small / too big — adjust
 - **D** — actually need the comprehensive version, not a slice
 
-**Stop and wait** for the user's reaction. This is the convergence commitment moment — do not skip it unless calibration was set to "just go."
+**Wait for the answer.** This is the convergence commitment moment — do not skip it unless calibration was set to "just go."
 
 ## 5. Synthesize
 
@@ -89,7 +89,7 @@ Now that the slice is locked in, present a scoped problem statement that reflect
 
 Recommend **one** next move based on the slice — not a menu. Name the skill or action explicitly:
 
-- Planning what design work the slice implies (`/strategy-partner` if available — only if the slice is big enough to warrant a strategic plan)
+- Planning the execution of the slice (`/planning-partner` — only if the slice is big enough to warrant a multi-step plan)
 - Thinking through a decision or tradeoff inside the slice (`/thinking-partner`)
 - Investigating a specific unknown (`/research-partner`)
 - Exploring solution directions for the slice (`/ideation-partner`)
@@ -101,20 +101,56 @@ If the slice is small enough to just go — say so. Don't recommend a downstream
 
 ## 6. Save
 
-Save to `design-artifacts/<descriptive-name>--sense.md` with:
+Save to `design-artifacts/<descriptive-name>--sense.md` using the **stem format** — a scannable commit slip, not a transcript. The file should give a future reader (or another agent) the shape of the problem and the committed decision in a single scan, without re-living the analysis.
 
-- H1 title: `# Sensemaking: <title>` summarizing what was decomposed
-- Date
-- **Question/Context** — the original ticket, task, or domain being understood
-- **Probes** — each probe raised in Phase 2 with the user's one-line reaction. This section is load-bearing context for why the slice ended up where it did.
-- **Decomposition** — breakdown, landscape, design surface, effort assessment (compressed, post-Probe)
-- **Slice** — the load-bearing part chosen, with rationale
-- **Parked** — the other parts with one-line "why later" notes each
-- **Problem Statement** — scoped to the slice
-- **Next Move** — the single recommended next action
-- **Open Threads** — anything surfaced but not resolved
+```markdown
+# Sensemaking: <short title>
+*<YYYY-MM-DD>*
 
-The artifact must be **self-contained** — readable without conversation context.
+**Input:** <2-4 sentences summarizing the source — quote/link the original ticket/brief plus critical context (current state, scale, what's prompting it)>
+
+**Decomposition & design surface:**
+- **<Part name>** — <kind of design work> · **<weight>** *(load-bearing)*
+- **<Part name>** — <kind of design work> · <weight>
+- ... *(default 5-8 bullets, fewer is fine)*
+
+**Slice:** <one sentence — the load-bearing part>
+
+**Why:** <1-3 sentences — what makes this load-bearing, what it unblocks, what it lets you defer>
+
+**Pressure-tested:**
+- <assumption challenged → outcome only, not the Q&A>
+- ... *(hard cap 3 bullets, omit section entirely if nothing was challenged)*
+
+**Next:** <one action — name the skill or doable verb, no menu>
+
+**Parked:**
+- <part> — <one-line why later>
+- ... *(omit section entirely if nothing was parked)*
+```
+
+**Field rules:**
+
+- **Input** — the only place that restates the source. 2-4 sentences max.
+- **Decomposition & design surface** — each bullet carries `name · kind of design work · weight` (no design / light / medium / heavy). The load-bearing item is marked inline with `*(load-bearing)*`. This is the scannable shape of the whole problem.
+- **Slice** — slightly redundant with the inline load-bearing marker; the redundancy is intentional (scanning material vs. committed material).
+- **Why** — the highest-stakes sentence in the artifact. If it's weak, the whole document collapses into "yeah but why this one?" Worth iterating until it's airtight.
+- **Pressure-tested** — the *residue* of the Probe phase. Outcomes only, never the Q&A. Tells future-readers what's already settled so probes don't get re-run. Hard cap 3 bullets.
+- **Next** — one verb, one action. Not a menu.
+- **Parked** — what's deferred (not lost), including any open stakeholder questions. If this section grows past ~6 items, the slice is too narrow or the decomposition is too granular.
+
+**Word budget scales with brief complexity:**
+- Simple ticket: ~150-200 words
+- Complex brief: ~300-450 words
+- Past ~450 it starts feeling heavy — compress or cut parked entries first.
+
+**Anti-sections — do not include:**
+- No "Context" / "Background" / "Problem Statement" sections — Input + Slice cover this.
+- No verbatim "Probes" section — Pressure-tested captures the residue only.
+- No "Open Threads" section — fold unresolved items into Parked.
+- No separate "Landscape" or "Effort Assessment" subsections — both fold into the per-bullet design weight.
+
+**Self-contained ≠ comprehensive.** A future reader needs to know *what was decided, why, and what was checked* — not relive the analysis. Stop and wait for user confirmation before saving.
 
 **No Act phase.** Sensemaking produces understanding; downstream skills produce action.
 
@@ -131,6 +167,7 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 ## Rules
 
 - Be direct. No preamble, no filler. Labeled bullets for discrete items, prose for narrative.
+- **One question per call.** Any question to the user — probes, clarifications, convergence picks — goes through `AskUserQuestion` (Claude Code) or `requestUserInput` (Codex), one at a time. Never batch questions.
 - Quote sources, don't summarize — the user needs to see exactly what you're referencing.
 - Steel-man all positions. Don't lead the user toward a predetermined answer.
 - **Probe before decomposing.** The Probe phase is where the user is most engaged — don't skip it unless calibration is "just go." If nothing in the input warrants a provocation, say so explicitly rather than fabricating one.
@@ -141,6 +178,6 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 - If a question doesn't change what the skill does next, don't ask it.
 - Prefer labeled options (A/B/C) over open-ended questions in convergence phases (Slice, Synthesize). Probe is allowed to be open because reactions are open-ended by nature.
 - If decomposition reveals that research is needed before understanding is possible, say so. Don't fake understanding with shallow analysis.
-- Artifacts must be self-contained. Someone reading the file with no conversation context should understand the probes, decomposition, slice, and rationale.
+- Artifacts must be self-contained but **not comprehensive** — a future reader should understand the input, decomposition shape, slice, why, and what was pressure-tested. They should *not* need to relive probes or full analysis. The saved file is a stem, not a transcript.
 
 $ARGUMENTS

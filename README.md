@@ -6,7 +6,7 @@ AI agent skills for design work — reason through decisions, explore problem sp
 
 **`/sensemaking-partner`** — Build structured understanding from a ticket, task, or project context. Decomposes problems into constituent parts, maps the landscape, identifies hidden design complexity, and signals level of effort. Produces understanding; downstream skills produce action.
 
-**`/strategy-partner`** — Plan what design work to do for an initiative. Takes any input — sensemaking artifact, ticket, PRD, verbal description — and produces a prioritized design action plan organized into parallel workstreams, with strategic questions surfaced as reasoning behind the actions.
+**`/planning-partner`** — Take a chosen aspect from a sensemaking artifact (the load-bearing slice or any parked item) and produce a focused execution plan: 3–6 sequenced steps, each with a method and a decision-relevant outcome, plus the one piece of hidden complexity worth flagging. Purely additive over the sense doc — no restatement.
 
 **`/ideation-partner`** — Explore a problem space and generate genuinely different solution directions. Works from tickets, notes, screenshots, or a verbal description. Asks targeted questions to frame the problem, then produces multiple distinct concepts — not variations on one idea.
 
@@ -21,10 +21,12 @@ AI agent skills for design work — reason through decisions, explore problem sp
 ### How they fit together
 
 ```
-Sense — Strategize — Ideate — Scope — Share
-                     |
-            Research · Thinking
+Sense — Plan — Ideate — Scope — Share
+            |
+   Research · Thinking
 ```
+
+`/planning-partner` is the typical next step after `/sensemaking-partner` when the slice is big enough to need a multi-step execution plan.
 
 ## Install
 
