@@ -1,93 +1,262 @@
 ---
 name: scoping-partner
-description: Use when you have a chosen direction and need to break it into prioritized scope tiers
+description: Use when you need to build structured understanding from raw project context — PRDs, tickets, Slack threads, wireframes, screenshots, or verbal dumps — decompose the design problem, and converge on what to work on first
 ---
 
-## Phase 1 — Understand
+# Scoping Partner
 
-Read the concept, brief, wireframes, or other artifacts the user points to. Scan `design-artifacts/` (and one level of subfolders) for related context — prior sensemaking or thinking sessions, research, test results — that informs scope decisions.
+## Overview
 
-Ask clarifying questions (one per `AskUserQuestion` or `requestUserInput` call, never batch). The test for each question: **would knowing this change how I'd scope this?** Stop when answers stop changing your thinking.
+Turns raw context into structured design understanding, then converges on the load-bearing slice. Core principle: **probe the framing before decomposing, then propose what to work on first — don't map the whole space and leave the user to pick.**
 
-Areas to probe as needed — not a sequential checklist:
+## When to Use
 
-- **Team** — who's building this, how many people, what skills
-- **Timeline** — is there a deadline, a release train, or open-ended
-- **Technical unknowns** — what hasn't been built before, what needs spikes
-- **What exists** — what's already built that this extends or replaces
-- **Dependencies** — external teams, APIs, approvals that gate work
+- User drops raw context (ticket, PRD, Slack thread, screenshot, verbal dump) and needs to understand the design problem
+- User asks "what should I design for this?" or "break this down"
+- Kicking off design work where problem, users, and surface aren't yet aligned
+- Need to figure out where complexity hides and what level of effort each part warrants
 
-If the user says "just go" or similar, proceed with reasonable assumptions and flag them.
+**When NOT to use:**
+- Single focused question — use thinking-partner
+- Already have a slice and need execution steps — use planning-partner
+- Exploring solution directions — use ideation-partner
+- Investigating a specific unknown — use research-partner
 
-## Phase 2 — Decompose
+## Workflow
 
-Break the work into features or capabilities. For each:
+```dot
+digraph scoping_flow {
+    "Parse input" [shape=box];
+    "Sufficient context?" [shape=diamond];
+    "User opted in?" [shape=diamond];
+    "Ask ONE question" [shape=box];
+    "Probe framing" [shape=box];
+    "Produce sections" [shape=box];
+    "Propose slice" [shape=box];
+    "Save" [shape=doublecircle];
 
-- **What it is** — one sentence
-- **What it enables** — why this matters to the user or system
-- **What depends on it** — downstream features that can't start without this
+    "Parse input" -> "Sufficient context?";
+    "Sufficient context?" -> "Probe framing" [label="yes"];
+    "Sufficient context?" -> "User opted in?" [label="no"];
+    "User opted in?" -> "Probe framing" [label="yes (with warning)"];
+    "User opted in?" -> "Ask ONE question" [label="no"];
+    "Ask ONE question" -> "Sufficient context?";
+    "Probe framing" -> "Produce sections";
+    "Produce sections" -> "Propose slice";
+    "Propose slice" -> "Save";
+}
+```
 
-Present as a flat list — don't tier yet. This is the raw material for prioritization. **Stop and wait** for the user to add, remove, or adjust items before prioritizing.
+Create one task per phase; complete in order:
 
-## Phase 3 — Prioritize
+### Phase 1 — Parse & Gate
 
-Sort features into tiers:
+Extract what's stated. No interpretation yet. Evaluate against four sufficiency dimensions:
 
-**MVP** — the minimum set that proves the core bet and is usable. The bar: if you cut any one of these, the thing doesn't work or doesn't make sense.
+- **Problem clarity** — What's broken, missing, or changing, and why now?
+- **Design intent** — Why is it being built and what success looks like?
+- **User signal** — Who is affected and what are they trying to do?
+- **Design surface specificity** — Can you name at least one concrete screen, flow, component, or touchpoint?
 
-**Should-have** — high-value features that meaningfully improve the experience but aren't required for launch. These are the first things you'd add after MVP ships.
+If weak on any dimension, ask **one question per turn**. Never narrate your assessment — just ask. Include an escape hatch ("or just say go and I'll proceed with assumptions flagged").
 
-**Nice-to-have** — features that can wait. Explicitly name what you're deferring and why it's safe to defer.
+Accept any format. Don't ask for reformatting. Length ≠ clarity — a 500-word brief with seven bullets can still fail all four dimensions.
 
-Present the tiers clearly. For each item, include a one-line rationale for its placement — especially for items on the MVP boundary where the decision is tightest.
+**Calibration:** Propose depth before probing.
 
-**Stop and wait** for the user to agree on tiers before drafting tickets. The prioritization conversation is where the real value is — tickets are the output, not the point.
+- **Just go** — skip Probe, produce sections and slice in one pass, flag assumptions inline
+- **Standard** — full Probe → Sections → Slice flow with stops at Probe and Slice
 
-## Phase 4 — Draft tickets
+### Phase 2 — Probe
 
-For each feature in MVP and Should-have tiers, produce a ticket:
+Before decomposing, challenge the framing. **This is the deepest user-engagement moment — make it count.**
 
-- **Title** — clear, action-oriented
-- **Description** — the problem this solves + the approach (2-4 sentences)
-- **Acceptance criteria** — testable conditions that define done (bulleted list)
-- **Tier** — MVP / Should-have / Nice-to-have
-- **Dependencies** — other tickets that must complete first (by title)
-- **Size** — T-shirt estimate: S (< 1 day), M (1-3 days), L (3-5 days)
+Lead with: *"Here's what I'm reading this as, and what I'd pressure-test:"*
 
-Group tickets by tier. Sequence within each tier by dependencies — things that unblock other work come first.
+**Toolkit** (use what fits, ignore what doesn't):
 
-MVP tickets should be detailed enough to start work. Should-have tickets can be lighter — enough to understand scope and effort, not implementation detail.
+- **Framing challenge** — "You called this X but it reads more like Y. Which is it?"
+- **Scope challenge** — "This says A, but B is implicated. Is B in scope or deferred?"
+- **Missing-piece challenge** — "Nothing addresses Z, which I'd expect here. Intentional?"
+- **Ticket-expansion challenge** — "This might be too narrow. The underlying problem looks like W."
+- **Hidden-assumption challenge** — "This only works if X is true. Is it?"
+- **Wrong-ticket challenge** — "The real ask might be P. Worth re-scoping?"
 
-Nice-to-have items get a one-line entry in a deferred list, not full tickets.
+**No cap on probes.** Raise every one that would meaningfully change the decomposition or slice. If nothing warrants pushback, say so explicitly and proceed.
 
-Present all tickets. **Stop and wait** for feedback before saving.
+Ask probes **one at a time** via `AskUserQuestion`. Wait for each answer before deciding if the next probe still applies — one answer can collapse two probes into none.
 
-## Phase 5 — Capture
+Skip only if calibration is "just go."
 
-Save to `design-artifacts/<descriptive-name>--scope.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus.
+### Phase 3 — Produce Sections
 
-Start the file with an H1 title: `# Scope: <descriptive title>` (e.g., `# Scope: Onboarding Flow MVP`).
+Now that probes have reshaped understanding, produce the scoping artifact. Sections are ordered by universal usefulness — the first five are the "always read" block, the rest are on-demand depth.
 
-Structure:
-- **Overview** — 2-3 sentences on what's being scoped and the core bet
-- **Tier breakdown** — MVP, Should-have, Nice-to-have with item lists
-- **Tickets** — full ticket details, grouped by tier
-- **Deferred items** — nice-to-haves with rationale for deferral
-- **Open questions** — unknowns that need spikes or decisions before work starts
+Tag every inference `[assumed]` / `[inferred]` / `[implied]` throughout.
 
-**Anti-pattern: "Scope the whole vision."** Scoping works on a chosen direction, not a feature wish list. If the input hasn't converged on a direction, say so — the user needs to explore and converge before scoping will be productive.
+**Default toward fewer items, not more.** Aim for 2-3 design surfaces, not 5-6.
+
+#### Always-read block
+
+**1. Problem & Why Now** — Narrative prose, 1-3 short paragraphs. What's broken, why now. Synthesize; don't restate inputs.
+
+**2. Design Surfaces** — The parts that carry design effort. Each gets: name, kind of design work needed, weight (no design / light / significant). Call out where complexity hides. Mark the load-bearing surface. Cap at 2-3 by default.
+
+**3. Strategic Questions** — 2-4 driving questions whose answers would most reshape the scope. Each: one sentence question, one sentence on why it matters.
+
+#### On-demand depth (below a divider)
+
+**4. Users & Jobs** — Markdown table: `User | Job`. JTBD format: `**When** [situation] **I want to** [motivation] **so I can** [outcome]`. Tag inferred users `[inferred]`.
+
+**5. Gaps & Clarifications** — `Gap | Impact | Default assumption`. One gap per row. If user signaled completeness, convert to assumptions.
+
+**6. Effort Shape** — Not a plan. The shape of the work: how many surfaces, whether parallel or sequential, rough size signal (afternoon / multi-day / multi-week), dependencies on external input. Enough to validate the slice is right-sized without doing planning-partner's job.
+
+**7. Business Outcome & Metrics** — `Metric | What it measures`. Propose 2-4 if inputs don't specify; mark `[assumed]`.
+
+### Phase 4 — Propose Slice
+
+**Do not ask the user what to focus on. Propose it.**
+
+Pick the **load-bearing** part from the design surfaces — the one whose answer most changes what the rest become. Present:
+
+- **The slice** — named clearly, one sentence
+- **Why this one** — what it unblocks, what it teaches, what it defers
+- **Parked** — other parts, each with a one-line note on why they wait
+
+Then ask via `AskUserQuestion` with labeled options:
+
+- **A** — accept the slice, proceed
+- **B** — different slice (pick from parked)
+- **C** — adjust size (too big / too small)
+- **D** — need the comprehensive version, not a slice
+
+### Phase 5 — Next & Save
+
+Recommend **one** next move — not a menu:
+
+- `/planning-partner` — if slice warrants a multi-step execution plan
+- `/thinking-partner` — if there's a decision or tradeoff inside the slice
+- `/research-partner` — if there's a specific unknown to investigate
+- `/ideation-partner` — if you need to explore solution directions
+
+If the slice is small enough to just go, say so.
+
+**Stop and wait** for user confirmation before saving.
+
+Save to `design-artifacts/<descriptive-name>--scope.md`. Format:
+
+```markdown
+# Scope: <short title>
+*<YYYY-MM-DD>*
+
+## Problem & Why Now
+
+<1-3 paragraphs — what's broken, why now>
+
+## Design Surfaces
+
+- **<Surface>** — <kind of design work> · **<weight>** *(load-bearing)*
+- **<Surface>** — <kind of design work> · <weight>
+
+## Strategic Questions
+
+1. **<question>?** <why it matters>
+2. **<question>?** <why it matters>
+
+## Slice
+
+**<one sentence — the load-bearing part>**
+
+**Why:** <1-3 sentences — what makes this load-bearing, what it unblocks, what it defers>
+
+**Parked:**
+- <part> — <why later>
+
+## Next
+
+<one action — name the skill or doable verb>
+
+**Pressure-tested:**
+- <assumption challenged → outcome only>
+*(hard cap 3 bullets, omit if nothing challenged)*
+
+---
+
+*On-demand depth*
+
+## Users & Jobs
+
+| User | Job |
+|---|---|
+| <user> | **When** <situation> **I want to** <motivation> **so I can** <outcome> |
+
+## Gaps & Clarifications
+
+| Gap | Impact | Default assumption |
+|---|---|---|
+| <gap> | <impact> | <assumption> |
+
+## Effort Shape
+
+- <number of surfaces, sequencing, rough size, dependencies>
+
+## Business Outcome & Metrics
+
+| Metric | What it measures |
+|---|---|
+| <metric> | <what it measures> |
+```
+
+**Word budget:**
+- Simple problem: ~200-300 words (above the divider)
+- Complex problem: ~400-600 words (full artifact)
+- Past ~600: compress or cut on-demand sections
+
+## Critical Behaviors
+
+- **Probe before decomposing.** Challenge the framing, don't just check for completeness.
+- **Propose the slice; don't ask.** User reacts and redirects, doesn't generate.
+- **One question per turn, always.**
+- **Label every inference** `[assumed]` / `[inferred]` / `[implied]`.
+- **Default toward fewer items.** 2-3 design surfaces, not 5-6.
+- **One next-move recommendation, not a menu.**
+- **No scope inflation.** Implied surfaces must be necessary, not aspirational.
+
+## Rationalization Table
+
+| Excuse | Reality |
+|--------|---------|
+| "Input is long — that's enough." | Length ≠ clarity. Check the four dimensions. |
+| "I'll ask two — they're related." | One question. Reassess, then ask. |
+| "Let me explain what I'm evaluating." | Never narrate. Just ask. |
+| "I already understand this." | Strongest temptation on clean-looking inputs. Probe anyway. |
+| "Map the whole space first." | Comprehensiveness enables over-design. Find the slice. |
+| "Skip Probe — input looks clean." | Clean tickets hide framing assumptions. Say so explicitly if skipping. |
+| "Adding one nice-to-have surface." | No scope inflation. Implied = necessary, not aspirational. |
+| "I'll organize by role." | Organize by what you need to learn, not job title. |
+
+## Red Flags — STOP and reassess
+
+- More than one question mark in your response
+- About to narrate your sufficiency assessment
+- Producing sections without having probed (unless "just go")
+- Adding a surface "because it would be nice"
+- Letting the user pick the slice from a comprehensive map
+- Skipping Gaps because input seemed strong
 
 ## Artifact Directory
 
-Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders. Before writing, check if an artifact already exists at the target path. If it does, read it — the current run's output should reflect awareness of prior work, not blindly replace it.
+Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. Check `design-artifacts/` and one level of subfolders for existing artifacts. Before writing, check if an artifact already exists at the target path — reflect awareness of prior work, don't blindly replace it.
 
 ## Rules
 
 - Be direct. No preamble, no filler.
-- One question per (`AskUserQuestion` or `requestUserInput`) call.
-- MVP is the smallest thing that works, not the smallest thing you can ship. "Works" means a user can accomplish the core task end-to-end.
-- Don't pad MVP with "foundation" work that doesn't deliver user value. Infrastructure belongs in tickets, not tier justifications.
-- If the source artifacts are too vague to scope concretely, say so — name what's missing (problem understanding, direction convergence, or both) rather than guessing.
-- T-shirt sizes are rough signals, not commitments. Don't pretend to precision you don't have.
+- **One question per call.** Probes, clarifications, convergence picks — all go through `AskUserQuestion`, one at a time.
+- Quote sources, don't summarize.
+- Steel-man all positions.
+- Prefer labeled options (A/B/C) in convergence phases. Probes can be open-ended.
+- If decomposition reveals research is needed before understanding is possible, say so.
+- Artifacts are self-contained but **not comprehensive** — what was decided, why, what was checked. Not the full analysis.
 
 $ARGUMENTS
