@@ -29,13 +29,12 @@ Scope — Plan — Ideate — Share
 ## Install
 
 ```bash
-git clone https://github.com/rodh/design-partner-skills.git ~/.local/share/design-partner-skills
-~/.local/share/design-partner-skills/install.sh
+DEST=~/.local/share/design-partner-skills
+[ -d "$DEST" ] && git -C "$DEST" pull --ff-only || git clone https://github.com/rodh/design-partner-skills.git "$DEST"
+"$DEST/install.sh"
 ```
 
-The install script detects supported platforms and symlinks each skill into the appropriate skills directory. Symlinks keep them updatable via `update`.
-
-Already installed? Run `~/.local/share/design-partner-skills/install.sh update` to pull latest and prune removed skills.
+The install script detects supported platforms and symlinks each skill into the appropriate skills directory.
 
 ### Other commands
 
