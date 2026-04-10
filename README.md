@@ -16,14 +16,12 @@ AI agent skills for design work — reason through decisions, explore problem sp
 
 **`/thinking-partner`** — Think something through: a decision, a hunch, a tradeoff, a strategy question, or anything that needs structured clarity before action. Calibrates depth and selects from composable analytical moves to match what you bring it.
 
-**`/focus-partner`** — Cut through accumulated design work to decide what to ship first. Filters through intent, impact, and risk to produce a Ship / Defer / Learn recommendation.
-
 ### How they fit together
 
 ```
 Scope — Plan — Ideate — Share
            |
-  Research · Thinking · Focus
+     Research · Thinking
 ```
 
 `/planning-partner` is the typical next step after `/scoping-partner` when the slice is big enough to need a multi-step execution plan.
