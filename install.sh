@@ -38,6 +38,32 @@ get_skill_dirs() {
   printf '%s\n' "${dirs[@]}"
 }
 
+prune_stale() {
+  local pruned=0
+  for i in "${!PLATFORM_NAMES[@]}"; do
+    local target_dir="${PLATFORM_DIRS[$i]}"
+    [ -d "$target_dir" ] || continue
+
+    for link in "$target_dir"/*-partner; do
+      [ -L "$link" ] || continue
+      local existing
+      existing="$(readlink "$link")"
+      case "$existing" in
+        "$SKILLS_DIR"/*)
+          if [ ! -e "$link" ]; then
+            rm "$link"
+            pruned=$((pruned + 1))
+          fi
+          ;;
+      esac
+    done
+  done
+
+  if [ "$pruned" -gt 0 ]; then
+    echo "Pruned $pruned stale symlink(s)."
+  fi
+}
+
 do_install() {
   local installed=0 skipped=0 relinked=0 warned=0
 
@@ -74,6 +100,10 @@ do_install() {
 
   echo ""
   echo "Installed: $installed  Re-linked: $relinked  Already linked: $skipped  Warnings: $warned"
+
+  # Prune stale symlinks whose source no longer exists
+  prune_stale
+
   echo ""
   print_status
 }
@@ -117,31 +147,6 @@ do_update() {
 
   echo "Re-installing skills..."
   do_install
-
-  # Prune stale symlinks whose source no longer exists
-  local pruned=0
-  for i in "${!PLATFORM_NAMES[@]}"; do
-    local target_dir="${PLATFORM_DIRS[$i]}"
-    [ -d "$target_dir" ] || continue
-
-    for link in "$target_dir"/*-partner; do
-      [ -L "$link" ] || continue
-      local existing
-      existing="$(readlink "$link")"
-      case "$existing" in
-        "$SKILLS_DIR"/*)
-          if [ ! -e "$link" ]; then
-            rm "$link"
-            pruned=$((pruned + 1))
-          fi
-          ;;
-      esac
-    done
-  done
-
-  if [ "$pruned" -gt 0 ]; then
-    echo "Pruned $pruned stale symlink(s)."
-  fi
 }
 
 print_status() {
@@ -188,6 +193,11 @@ detect_platforms
 case "${1:-install}" in
   install)
     echo "Installing Design Partner skills..."
+    # Pull latest if running from a git clone to avoid installing stale skills
+    if git -C "$SCRIPT_DIR" rev-parse --is-inside-work-tree &>/dev/null; then
+      echo "Pulling latest changes..."
+      git -C "$SCRIPT_DIR" pull --ff-only 2>/dev/null || true
+    fi
     do_install
     ;;
   uninstall)
