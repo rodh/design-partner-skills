@@ -13,52 +13,51 @@ Read the request. Restate what we're thinking through.
 
 **Scope check:** If the request contains multiple entangled questions, flag it. Propose decomposing into separate topics. Don't dive into analysis on a question that needs to be broken apart first.
 
-**Calibrate:** Propose depth and shape, then select 2-4 analytical moves.
+**Gauge weight** — how much ceremony does this session need?
 
-**Depth:**
-- **Quick check** — restate, direct take, one risk. One exchange. For sanity checks and gut-check requests.
-- **Working session** — frame, 2-4 analytical moves, pauses between blocks. Typical weight.
-- **Deep session** — multiple rounds, more moves, more pressure-testing. High-stakes or genuinely complex tradeoffs.
+- **Quick check** — restate what we're thinking about, then go straight to thinking. No calibration, no stop-and-wait. One exchange.
+- **Working session** — restate + note that this needs a few exchanges + rough direction (what kind of clarity we're heading toward). **Stop and wait** for confirmation.
+- **Deep session** — restate + note entanglements + rough direction. **Stop and wait** for confirmation.
 
-**Shape:**
-- **Convergent** — narrowing toward a decision or position
-- **Divergent** — exploring implications, tracing consequences, opening up
-- **Diagnostic** — something feels off, need to find what and why
-
-**Analytical moves** — propose 2-4 from this toolkit based on calibration:
-
-| Move | What it does | Good for |
-|------|-------------|----------|
-| Evidence | Pull relevant content from files/context, quote specific lines | Grounding any session in reality |
-| Stakes | Trace concrete downstream effects of each direction | Convergent decisions, high-stakes calls |
-| Steel-man | Strongest argument for each position | Decisions, pressure-testing hunches |
-| Assumptions | Name what you'd need to believe for each direction to be right | Decisions, what-ifs |
-| Decompose | Break a tangled thing into named parts | Diagnostic, complex tradeoffs |
-| Trace | Follow one idea forward — what happens next, then next | Divergent exploration, what-ifs |
-| Pressure-test | Actively try to break the leading position | Before committing to anything |
-| Reframe | Restate the problem from a different angle | When stuck, when the framing itself is the issue |
-
-Present the frame: restated question + calibration + proposed moves. **Stop and wait** for confirmation or adjustment.
+Don't pre-select analytical moves. They emerge during thinking, not before it.
 
 If the request is ambiguous about what kind of thinking is needed, ask one question with labeled options rather than guessing.
 
-Calibration is a proposal, not a gate. If the user wants to skip straight to thinking, let them — but restate depth/shape so both sides know the plan.
-
-**Not for:** understanding and decomposing a problem (`/scoping-partner`), investigating facts (`/research-partner`), or generating divergent directions (`/ideation-partner`). Thinking-partner is for when context exists and you need to reason through it.
+**Center of gravity:** Thinking-partner is for reasoning through existing context — weighing options, stress-testing, exploring consequences. Brief excursions into adjacent territory (quick divergence, fact-checking, reframing as a scoping question) are fine when they serve the thinking. Redirect to `/scoping-partner`, `/research-partner`, or `/ideation-partner` only when the session is *primarily* that kind of work.
 
 **Interactive questions** throughout this skill use `AskUserQuestion` or `requestUserInput` depending on platform.
 
 ## 3. Think
 
-Execute the proposed moves in blocks of 1-2.
+Think in chunks, using whatever analytical approach serves the thinking. Name each move as you use it (for the capture artifact), but don't pre-select them.
 
-**Quick check:** All moves in one block. One exchange.
+**Common moves** (illustrative, not exhaustive — use these or others as the thinking demands):
 
-**Working session:** Blocks of 1-2 moves with pauses between. 2-4 exchanges total.
+| Move | What it does |
+|------|-------------|
+| Evidence | Pull relevant content from files/context, quote specific lines |
+| Stakes | Trace concrete downstream effects of each direction |
+| Steel-man | Strongest argument for each position |
+| Assumptions | Name what you'd need to believe for each direction to be right |
+| Decompose | Break a tangled thing into named parts |
+| Trace | Follow one idea forward — what happens next, then next |
+| Pressure-test | Actively try to break the leading position |
+| Reframe | Restate the problem from a different angle |
+| Analogy | Find a familiar structure that maps to this unfamiliar problem |
+| Inversion | Ask what would guarantee failure, then work backwards |
+| Constraint relaxation | Remove an assumed constraint and see what changes |
+| Perspective-taking | See the problem through a specific stakeholder's eyes |
+| Synthesis | Combine two partial ideas into something neither is alone |
+| Temporal | Play the decision forward through time — 1 month, 6 months, a year |
 
-**Deep session:** Blocks of 1-2 moves with pauses and pressure-testing. Multiple rounds.
+If no existing move fits what you're doing, name what you're actually doing. The vocabulary is open.
 
-When convergent: after analysis, propose 2-3 approaches with trade-offs and lead with your recommendation. Don't just present balanced analysis — have a point of view.
+**Pause rhythm adapts to weight:**
+- **Quick check:** One exchange, no pauses.
+- **Working session:** Pause between chunks. 2-4 exchanges total.
+- **Deep session:** Pause between chunks + explicit pressure-testing before converging. Multiple rounds.
+
+When narrowing toward a decision: propose 2-3 approaches with trade-offs and lead with your recommendation. Don't just present balanced analysis — have a point of view.
 
 Each pause = **stop and wait** — do not continue to the next phase in the same message. Prefer labeled options (A/B/C) over open-ended questions.
 
@@ -80,15 +79,12 @@ Start the file with an H1 title in the format `# Thinking: <title>`, where `<tit
 
 - **Session summary** — 2-3 sentences
 - **Trigger** — the user's opening statement
-- **Calibration** — depth and shape as proposed/adjusted
 - **Moves applied** — which moves were used, key points from each (compressed)
 - **Resolution** — what was decided, understood, or surfaced
 - **Changes made** — what was modified, or "None"
 - **Open threads** — anything surfaced but not resolved
 
 **Self-review:** After writing, scan for: vague conclusions, resolution that doesn't follow from analysis, open threads that should have been resolved. Fix inline before finalizing.
-
-**Anti-pattern: "This doesn't need structured thinking."** The temptation to skip framing is strongest on decisions that feel obvious. Those are exactly where unexamined assumptions do the most damage. The frame can be one sentence and the depth can be "quick check," but calibration must exist.
 
 ## Artifact Directory
 
@@ -100,7 +96,7 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 - Quote sources, don't summarize — the user needs to see exactly what you're referencing.
 - When convergent, have a point of view. Propose approaches with trade-offs and lead with your recommendation.
 - Prefer labeled options (A/B/C) over open-ended questions — reduces friction and shows you've done enough thinking to enumerate the space.
-- Every piece of analysis maps to a named move. If you can't name the move, don't do it.
+- Name your analytical moves when you use them — but the list is open. If no existing move fits, name what you're actually doing.
 - YAGNI: if thinking resolves without needing file changes, don't invent changes to make.
 - If thinking reveals an upstream problem, name it. Don't patch downstream files to work around it.
 - Don't skip thinking because it "seems obvious." The user invoked it for a reason.
