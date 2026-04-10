@@ -86,26 +86,21 @@ do_uninstall() {
 
     [ -d "$target_dir" ] || continue
 
-    while IFS= read -r skill_path; do
-      local name
-      name="$(basename "$skill_path")"
-      local link="$target_dir/$name"
-
-      if [ -L "$link" ]; then
-        local existing
-        existing="$(readlink "$link")"
-        # Only remove symlinks pointing into this checkout
-        case "$existing" in
-          "$SKILLS_DIR"/*)
-            rm "$link"
-            removed=$((removed + 1))
-            ;;
-          *)
-            skipped=$((skipped + 1))
-            ;;
-        esac
-      fi
-    done < <(get_skill_dirs)
+    # Scan target dir for all symlinks pointing into this checkout
+    for link in "$target_dir"/*-partner; do
+      [ -L "$link" ] || continue
+      local existing
+      existing="$(readlink "$link")"
+      case "$existing" in
+        "$SKILLS_DIR"/*)
+          rm "$link"
+          removed=$((removed + 1))
+          ;;
+        *)
+          skipped=$((skipped + 1))
+          ;;
+      esac
+    done
   done
 
   echo "Removed: $removed  Skipped (not ours): $skipped"
