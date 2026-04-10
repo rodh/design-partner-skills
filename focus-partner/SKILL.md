@@ -5,7 +5,7 @@ description: Use when you have accumulated design work and need to cut through i
 
 ## Phase 1 — Orient
 
-Scan `design-artifacts/` (and one level of subfolders) for existing work — sensemaking, strategy, ideation, research, thinking, scoping artifacts. Skim all of them to understand the landscape. Don't deep-read yet.
+Scan `design-artifacts/` (and one level of subfolders) for existing work — scoping, ideation, research, thinking, planning artifacts. Skim all of them to understand the landscape. Don't deep-read yet.
 
 **Two mandatory questions before proceeding:**
 
@@ -23,7 +23,7 @@ Example: *Reading this as: shipping a filter redesign in 2 weeks. Filtering for 
 
 The user corrects if wrong, otherwise proceed. Do not stop and wait for confirmation — the tag is inline, not a gate.
 
-**Not for:** breaking a chosen direction into detailed tickets (`/scoping-partner`), exploring a problem you don't yet understand (`/sensemaking-partner`), or generating new directions (`/ideation-partner`). Focus-partner is for when the design work exists and you need to cut through it to decide what ships first.
+**Not for:** decomposing a problem you don't yet understand (`/scoping-partner`), or generating new directions (`/ideation-partner`). Focus-partner is for when the design work exists and you need to cut through it to decide what ships first.
 
 ## Phase 2 — Cut
 
@@ -51,7 +51,7 @@ Incorporate the user's pushback. If they disagree with a cut, move the item and 
 
 Don't re-present the full recommendation. State what changed and why.
 
-If the user wants to go deeper on any deferred item, name the appropriate skill (`/thinking-partner`, `/scoping-partner`, etc.) rather than expanding inline.
+If the user wants to go deeper on any deferred item, name the appropriate skill (`/thinking-partner`, `/planning-partner`, etc.) rather than expanding inline.
 
 **Stop and wait** for the user to confirm before saving.
 
@@ -92,6 +92,6 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 - "Learn" is mandatory. If you can't name what shipping teaches, the v1 isn't focused enough.
 - Keep it short. If the total recommendation exceeds ~30 lines, compress further.
 - If the design artifacts are too thin to cut from — not enough work has been done to have a convergence problem — say so and recommend the upstream skill that's needed.
-- If there's only one direction and it's already scoped, this skill isn't needed — recommend `/scoping-partner` instead.
+- If there's only one direction and it's already scoped, this skill isn't needed — recommend `/planning-partner` instead.
 
 $ARGUMENTS
