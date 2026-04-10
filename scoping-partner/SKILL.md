@@ -64,7 +64,7 @@ Accept any format. Don't ask for reformatting. Length ≠ clarity — a 500-word
 
 **Calibration:** Propose depth before probing.
 
-- **Just go** — skip Probe, produce above-the-divider sections and slice in one pass, flag assumptions inline. Omit on-demand sections unless context is rich enough to populate them without guessing.
+- **Just go** — skip Probe, produce sections and slice in one pass, flag assumptions inline
 - **Standard** — full Probe → Sections → Slice flow with stops at Probe and Slice
 
 ### Phase 2 — Probe
@@ -126,70 +126,7 @@ If the slice is small enough to just go, say so.
 
 **Stop and wait** for user confirmation before saving.
 
-Save to `design-artifacts/<descriptive-name>--scope.md`. Format:
-
-```markdown
-# Scope: <short title>
-*<YYYY-MM-DD>*
-
-## Problem & Why Now
-<!-- Narrative prose, 1-3 paragraphs. Synthesize; don't restate inputs. -->
-
-## Design Surfaces
-<!-- Each: name · kind of design work · weight (no design / light / significant). Mark load-bearing. Cap 2-3. -->
-- **<Surface>** — <kind of design work> · **<weight>** *(load-bearing)*
-- **<Surface>** — <kind of design work> · <weight>
-
-## Strategic Questions
-<!-- 2-4 questions whose answers most reshape scope. One sentence each + why it matters. -->
-1. **<question>?** <why it matters>
-2. **<question>?** <why it matters>
-
-## Slice
-**<one sentence — the load-bearing part>**
-
-**Why:** <1-3 sentences — what makes this load-bearing, what it unblocks, what it defers>
-
-**Parked:**
-- <part> — <why later>
-
-## Next
-<one action — name the skill or doable verb, not a menu>
-
-**Pressure-tested:**
-- <assumption challenged → outcome only>
-*(hard cap 3 bullets, omit if nothing challenged)*
-
----
-*On-demand depth*
-
-## Users & Jobs
-<!-- JTBD format. Tag inferred users [inferred]. -->
-| User | Job |
-|---|---|
-| <user> | **When** <situation> **I want to** <motivation> **so I can** <outcome> |
-
-## Gaps & Clarifications
-<!-- One gap per row. If user signaled completeness, convert to assumptions. -->
-| Gap | Impact | Default assumption |
-|---|---|---|
-| <gap> | <impact> | <assumption> |
-
-## Effort Shape
-<!-- Not a plan. Shape only: surfaces, sequencing, rough size (afternoon/multi-day/multi-week), external dependencies. -->
-- <number of surfaces, sequencing, rough size, dependencies>
-
-## Business Outcome & Metrics
-<!-- Propose 2-4 if inputs don't specify; mark [assumed]. -->
-| Metric | What it measures |
-|---|---|
-| <metric> | <what it measures> |
-```
-
-**Word budget:**
-- Simple problem: ~200-300 words (above the divider)
-- Complex problem: ~400-600 words (full artifact)
-- Past ~600: compress or cut on-demand sections
+Read `scope-template.md` for the artifact format and word budget. Save to `design-artifacts/<descriptive-name>--scope.md`.
 
 ## Rationalization Table
 
