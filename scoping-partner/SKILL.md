@@ -1,6 +1,6 @@
 ---
 name: scoping-partner
-description: Use when you need to build structured understanding from raw project context — PRDs, tickets, Slack threads, wireframes, screenshots, or verbal dumps — decompose the design problem, and converge on what to work on first
+description: Use when you have raw project context — PRDs, tickets, Slack threads, wireframes, screenshots, or verbal dumps — and need to understand the design problem before starting work
 ---
 
 # Scoping Partner
@@ -64,7 +64,7 @@ Accept any format. Don't ask for reformatting. Length ≠ clarity — a 500-word
 
 **Calibration:** Propose depth before probing.
 
-- **Just go** — skip Probe, produce sections and slice in one pass, flag assumptions inline
+- **Just go** — skip Probe, produce above-the-divider sections and slice in one pass, flag assumptions inline. Omit on-demand sections unless context is rich enough to populate them without guessing.
 - **Standard** — full Probe → Sections → Slice flow with stops at Probe and Slice
 
 ### Phase 2 — Probe
@@ -90,29 +90,11 @@ Skip only if calibration is "just go."
 
 ### Phase 3 — Produce Sections
 
-Now that probes have reshaped understanding, produce the scoping artifact. Sections are ordered by universal usefulness — the first five are the "always read" block, the rest are on-demand depth.
+Produce the scoping artifact using the template below. Tag every inference `[assumed]` / `[inferred]` / `[implied]`. Default toward fewer items — 2-3 design surfaces, not 5-6.
 
-Tag every inference `[assumed]` / `[inferred]` / `[implied]` throughout.
+**Above the divider** (always-read): Problem & Why Now, Design Surfaces, Strategic Questions, Slice, Next, Pressure-tested.
 
-**Default toward fewer items, not more.** Aim for 2-3 design surfaces, not 5-6.
-
-#### Always-read block
-
-**1. Problem & Why Now** — Narrative prose, 1-3 short paragraphs. What's broken, why now. Synthesize; don't restate inputs.
-
-**2. Design Surfaces** — The parts that carry design effort. Each gets: name, kind of design work needed, weight (no design / light / significant). Call out where complexity hides. Mark the load-bearing surface. Cap at 2-3 by default.
-
-**3. Strategic Questions** — 2-4 driving questions whose answers would most reshape the scope. Each: one sentence question, one sentence on why it matters.
-
-#### On-demand depth (below a divider)
-
-**4. Users & Jobs** — Markdown table: `User | Job`. JTBD format: `**When** [situation] **I want to** [motivation] **so I can** [outcome]`. Tag inferred users `[inferred]`.
-
-**5. Gaps & Clarifications** — `Gap | Impact | Default assumption`. One gap per row. If user signaled completeness, convert to assumptions.
-
-**6. Effort Shape** — Not a plan. The shape of the work: how many surfaces, whether parallel or sequential, rough size signal (afternoon / multi-day / multi-week), dependencies on external input. Enough to validate the slice is right-sized without doing planning-partner's job.
-
-**7. Business Outcome & Metrics** — `Metric | What it measures`. Propose 2-4 if inputs don't specify; mark `[assumed]`.
+**Below the divider** (on-demand depth): Users & Jobs, Gaps & Clarifications, Effort Shape, Business Outcome & Metrics.
 
 ### Phase 4 — Propose Slice
 
@@ -151,21 +133,19 @@ Save to `design-artifacts/<descriptive-name>--scope.md`. Format:
 *<YYYY-MM-DD>*
 
 ## Problem & Why Now
-
-<1-3 paragraphs — what's broken, why now>
+<!-- Narrative prose, 1-3 paragraphs. Synthesize; don't restate inputs. -->
 
 ## Design Surfaces
-
+<!-- Each: name · kind of design work · weight (no design / light / significant). Mark load-bearing. Cap 2-3. -->
 - **<Surface>** — <kind of design work> · **<weight>** *(load-bearing)*
 - **<Surface>** — <kind of design work> · <weight>
 
 ## Strategic Questions
-
+<!-- 2-4 questions whose answers most reshape scope. One sentence each + why it matters. -->
 1. **<question>?** <why it matters>
 2. **<question>?** <why it matters>
 
 ## Slice
-
 **<one sentence — the load-bearing part>**
 
 **Why:** <1-3 sentences — what makes this load-bearing, what it unblocks, what it defers>
@@ -174,35 +154,33 @@ Save to `design-artifacts/<descriptive-name>--scope.md`. Format:
 - <part> — <why later>
 
 ## Next
-
-<one action — name the skill or doable verb>
+<one action — name the skill or doable verb, not a menu>
 
 **Pressure-tested:**
 - <assumption challenged → outcome only>
 *(hard cap 3 bullets, omit if nothing challenged)*
 
 ---
-
 *On-demand depth*
 
 ## Users & Jobs
-
+<!-- JTBD format. Tag inferred users [inferred]. -->
 | User | Job |
 |---|---|
 | <user> | **When** <situation> **I want to** <motivation> **so I can** <outcome> |
 
 ## Gaps & Clarifications
-
+<!-- One gap per row. If user signaled completeness, convert to assumptions. -->
 | Gap | Impact | Default assumption |
 |---|---|---|
 | <gap> | <impact> | <assumption> |
 
 ## Effort Shape
-
+<!-- Not a plan. Shape only: surfaces, sequencing, rough size (afternoon/multi-day/multi-week), external dependencies. -->
 - <number of surfaces, sequencing, rough size, dependencies>
 
 ## Business Outcome & Metrics
-
+<!-- Propose 2-4 if inputs don't specify; mark [assumed]. -->
 | Metric | What it measures |
 |---|---|
 | <metric> | <what it measures> |
@@ -212,16 +190,6 @@ Save to `design-artifacts/<descriptive-name>--scope.md`. Format:
 - Simple problem: ~200-300 words (above the divider)
 - Complex problem: ~400-600 words (full artifact)
 - Past ~600: compress or cut on-demand sections
-
-## Critical Behaviors
-
-- **Probe before decomposing.** Challenge the framing, don't just check for completeness.
-- **Propose the slice; don't ask.** User reacts and redirects, doesn't generate.
-- **One question per turn, always.**
-- **Label every inference** `[assumed]` / `[inferred]` / `[implied]`.
-- **Default toward fewer items.** 2-3 design surfaces, not 5-6.
-- **One next-move recommendation, not a menu.**
-- **No scope inflation.** Implied surfaces must be necessary, not aspirational.
 
 ## Rationalization Table
 
@@ -252,11 +220,10 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 ## Rules
 
 - Be direct. No preamble, no filler.
-- **One question per call.** Probes, clarifications, convergence picks — all go through `AskUserQuestion`, one at a time.
-- Quote sources, don't summarize.
-- Steel-man all positions.
-- Prefer labeled options (A/B/C) in convergence phases. Probes can be open-ended.
-- If decomposition reveals research is needed before understanding is possible, say so.
-- Artifacts are self-contained but **not comprehensive** — what was decided, why, what was checked. Not the full analysis.
+- **One question per call** via `AskUserQuestion`. Never batch.
+- Quote sources, don't summarize. Steel-man all positions.
+- Labeled options (A/B/C) in convergence phases. Probes can be open-ended.
+- If decomposition reveals research is needed first, say so.
+- No scope inflation — implied surfaces must be necessary, not aspirational.
 
 $ARGUMENTS
