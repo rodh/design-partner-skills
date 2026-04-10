@@ -84,7 +84,7 @@ Lead with: *"Here's what I'm reading this as, and what I'd pressure-test:"*
 
 **No cap on probes.** Raise every one that would meaningfully change the decomposition or slice. If nothing warrants pushback, say so explicitly and proceed.
 
-Ask probes **one at a time** via `AskUserQuestion`. Wait for each answer before deciding if the next probe still applies — one answer can collapse two probes into none.
+Ask probes **one at a time** via `AskUserQuestion` (Claude Code) or `requestUserInput` (Codex). Wait for each answer before deciding if the next probe still applies — one answer can collapse two probes into none.
 
 Skip only if calibration is "just go."
 
@@ -106,7 +106,7 @@ Pick the **load-bearing** part from the design surfaces — the one whose answer
 - **Why this one** — what it unblocks, what it teaches, what it defers
 - **Parked** — other parts, each with a one-line note on why they wait
 
-Then ask via `AskUserQuestion` with labeled options:
+Then ask via `AskUserQuestion` (Claude Code) or `requestUserInput` (Codex) with labeled options:
 
 - **A** — accept the slice, proceed
 - **B** — different slice (pick from parked)
@@ -157,7 +157,7 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 ## Rules
 
 - Be direct. No preamble, no filler.
-- **One question per call** via `AskUserQuestion`. Never batch.
+- **One question per call** via `AskUserQuestion` (Claude Code) or `requestUserInput` (Codex). Never batch.
 - Quote sources, don't summarize. Steel-man all positions.
 - Labeled options (A/B/C) in convergence phases. Probes can be open-ended.
 - If decomposition reveals research is needed first, say so.
