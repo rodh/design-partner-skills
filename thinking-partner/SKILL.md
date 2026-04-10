@@ -5,7 +5,7 @@ description: Use when you need to think something through — weighing options, 
 
 ## 1. Read context
 
-Scan CWD for context related to the topic: code, docs, existing `design-artifacts/**/*--thinking.md` sessions, `design-artifacts/**/*--research.md` artifacts, `design-artifacts/**/*--sense.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
+Scan CWD for context related to the topic: code, docs, existing `design-artifacts/**/*--thinking.md` sessions, `design-artifacts/**/*--research.md` artifacts, `design-artifacts/**/*--scope.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
 
 ## 2. Frame
 
@@ -44,7 +44,7 @@ If the request is ambiguous about what kind of thinking is needed, ask one quest
 
 Calibration is a proposal, not a gate. If the user wants to skip straight to thinking, let them — but restate depth/shape so both sides know the plan.
 
-**Not for:** understanding a problem (`/sensemaking-partner`), investigating facts (`/research-partner`), or generating divergent directions (`/ideation-partner`). Thinking-partner is for when context exists and you need to reason through it.
+**Not for:** understanding and decomposing a problem (`/scoping-partner`), investigating facts (`/research-partner`), or generating divergent directions (`/ideation-partner`). Thinking-partner is for when context exists and you need to reason through it.
 
 **Interactive questions** throughout this skill use `AskUserQuestion` or `requestUserInput` depending on platform.
 

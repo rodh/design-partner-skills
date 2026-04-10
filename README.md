@@ -4,13 +4,11 @@ AI agent skills for design work — reason through decisions, explore problem sp
 
 ## Skills
 
-**`/sensemaking-partner`** — Build structured understanding from a ticket, task, or project context. Decomposes problems into constituent parts, maps the landscape, identifies hidden design complexity, and signals level of effort. Produces understanding; downstream skills produce action.
+**`/scoping-partner`** — Build structured understanding from raw project context (tickets, PRDs, Slack threads, wireframes, verbal dumps). Probes framing assumptions, decomposes into design surfaces, and converges on the load-bearing slice to work on first. Produces a scoping artifact with on-demand depth sections.
 
-**`/planning-partner`** — Take a chosen aspect from a sensemaking artifact (the load-bearing slice or any parked item) and produce a focused execution plan: 3–6 sequenced steps, each with a method and a decision-relevant outcome, plus the one piece of hidden complexity worth flagging. Purely additive over the sense doc — no restatement.
+**`/planning-partner`** — Take a chosen aspect from a scoping artifact (the load-bearing slice or any parked item) and produce a focused execution plan: 3–6 sequenced steps, each with a method and a decision-relevant outcome, plus the one piece of hidden complexity worth flagging. Purely additive over the scope doc — no restatement.
 
 **`/ideation-partner`** — Explore a problem space and generate genuinely different solution directions. Works from tickets, notes, screenshots, or a verbal description. Asks targeted questions to frame the problem, then produces multiple distinct concepts — not variations on one idea.
-
-**`/scoping-partner`** — Break a chosen direction into prioritized scope tiers (MVP, should-have, nice-to-have). Decomposes features, sequences by dependencies, and produces tickets with acceptance criteria and T-shirt sizing.
 
 **`/sharing-partner`** — Communicate design work to a specific audience — stakeholders, teammates, clients, or cross-functional partners. Restructures artifacts into one-pagers, async messages, tickets, or talking points tuned to the reader's mental model.
 
@@ -18,15 +16,17 @@ AI agent skills for design work — reason through decisions, explore problem sp
 
 **`/thinking-partner`** — Think something through: a decision, a hunch, a tradeoff, a strategy question, or anything that needs structured clarity before action. Calibrates depth and selects from composable analytical moves to match what you bring it.
 
+**`/focus-partner`** — Cut through accumulated design work to decide what to ship first. Filters through intent, impact, and risk to produce a Ship / Defer / Learn recommendation.
+
 ### How they fit together
 
 ```
-Sense — Plan — Ideate — Scope — Share
-            |
-   Research · Thinking
+Scope — Plan — Ideate — Share
+           |
+  Research · Thinking · Focus
 ```
 
-`/planning-partner` is the typical next step after `/sensemaking-partner` when the slice is big enough to need a multi-step execution plan.
+`/planning-partner` is the typical next step after `/scoping-partner` when the slice is big enough to need a multi-step execution plan.
 
 ## Install
 
@@ -47,6 +47,6 @@ The install script detects supported platforms and symlinks each skill into the 
 
 ## Usage
 
-Invoke any skill by name — e.g., `/sensemaking-partner [link or paste a ticket]`
+Invoke any skill by name — e.g., `/scoping-partner [link or paste a ticket]`
 
 Skills scan the working directory for existing artifacts and build on prior work automatically.

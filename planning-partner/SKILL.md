@@ -1,24 +1,24 @@
 ---
 name: planning-partner
-description: Use when you have a sense artifact with a chosen aspect (slice or parked item) and need an execution plan — what to do, in what order, with what method, and what each step gives you. Produces a lean, dispatchable plan, not a comprehensive strategy.
+description: Use when you have a scope or sense artifact with a chosen aspect (slice or parked item) and need an execution plan — what to do, in what order, with what method, and what each step gives you. Produces a lean, dispatchable plan, not a comprehensive strategy.
 ---
 
 ## Phase 1 — Intake
 
-Ingest `$ARGUMENTS`. Scan `design-artifacts/` (and one level of subfolders) for an existing sense artifact relevant to this work — `*--sense.md`. Read it.
+Ingest `$ARGUMENTS`. Scan `design-artifacts/` (and one level of subfolders) for an existing scope or sense artifact relevant to this work — `*--scope.md` or `*--sense.md`. Read it.
 
-**Planning-partner consumes a sense artifact and a chosen aspect — it does not re-derive them.**
+**Planning-partner consumes a scope or sense artifact and a chosen aspect — it does not re-derive them.**
 
 **Bounce conditions:**
 
-- **No sense artifact + thin input** — if there's no sensemaking artifact and the input is too thin to plan from (a sentence, a vague brief, no decomposition), stop and recommend running `/sensemaking-partner` first. Do not guess at execution plans for problems that haven't been decomposed.
-- **Slice is small enough to act directly** — if the slice from the sense artifact is small enough that it doesn't need a multi-step plan, say so and recommend going straight to the appropriate skill (`/research-partner`, `/thinking-partner`, `/ideation-partner`, or `/scoping-partner`). Don't invent steps to justify planning.
+- **No scope/sense artifact + thin input** — if there's no scoping or sensemaking artifact and the input is too thin to plan from (a sentence, a vague brief, no decomposition), stop and recommend running `/scoping-partner` first. Do not guess at execution plans for problems that haven't been decomposed.
+- **Slice is small enough to act directly** — if the slice from the artifact is small enough that it doesn't need a multi-step plan, say so and recommend going straight to the appropriate skill (`/research-partner`, `/thinking-partner`, or `/ideation-partner`). Don't invent steps to justify planning.
 
-**Identify which aspect to plan.** Default: the load-bearing slice from the sense artifact. If the user wants to plan a different aspect (e.g., a parked item), use that.
+**Identify which aspect to plan.** Default: the load-bearing slice from the scope/sense artifact. If the user wants to plan a different aspect (e.g., a parked item), use that.
 
-**Confirm what was inherited from sense.** Before proceeding to Probe, quote the chosen aspect from the sense doc and confirm with the user:
+**Confirm what was inherited from scope/sense.** Before proceeding to Probe, quote the chosen aspect from the artifact and confirm with the user:
 
-> *"From `<sense-artifact-path>`, planning execution for: '<chosen aspect, quoted verbatim>'. Strategic question (inherited or implied): '<question>'. Pressure-tests already settled by sense: [list, or 'none']. Confirm or adjust."*
+> *"From `<artifact-path>`, planning execution for: '<chosen aspect, quoted verbatim>'. Strategic question (inherited or implied): '<question>'. Pressure-tests already settled: [list, or 'none']. Confirm or adjust."*
 
 **Stop and wait for confirmation** before moving to Probe. If the user adjusts, update working state and re-confirm.
 
@@ -31,7 +31,7 @@ If the user says "just go" at any point, switch to the compact path.
 
 ## Phase 2 — Probe
 
-Read the chosen aspect from the sense artifact carefully. Read the parked items and pressure-tests already settled in sense. Before drafting steps, pressure-test the *execution assumptions* for this aspect — sequencing, method fit, hidden plan dependencies. **This is the deepest user-engagement moment in the skill.**
+Read the chosen aspect from the scope/sense artifact carefully. Read the parked items and pressure-tests already settled. Before drafting steps, pressure-test the *execution assumptions* for this aspect — sequencing, method fit, hidden plan dependencies. **This is the deepest user-engagement moment in the skill.**
 
 **Lead with:** *"For executing this aspect, here's what I'd pressure-test before drafting steps:"*
 
@@ -55,7 +55,7 @@ Read the chosen aspect from the sense artifact carefully. Read the parked items 
 
 **Diagnostic for probe scope:** *"If the answer is the worst case, does the slice still hold?"* Yes → execution probe (handle here). No → strategy probe (escalate to sense).
 
-**Don't re-raise probes the sense artifact already resolved.** Check the sense doc's `Pressure-tested` section first. If sensemaking already settled an assumption, assume it holds.
+**Don't re-raise probes the upstream artifact already resolved.** Check the `Pressure-tested` section first. If scoping/sensemaking already settled an assumption, assume it holds.
 
 Ask probes **one at a time** via `AskUserQuestion` (Claude Code) or `requestUserInput` (Codex). Wait for each answer before deciding whether the next probe still applies — sometimes one answer collapses what would have been the next probe.
 
@@ -63,13 +63,13 @@ Skip this phase only if calibration is set to "just go."
 
 ## Phase 3 — Draft
 
-Now that probes have reshaped the execution understanding, draft the plan in **stem format**. The plan is purely additive over the sense doc — no restatement of input, slice, parked items, or original probes.
+Now that probes have reshaped the execution understanding, draft the plan in **stem format**. The plan is purely additive over the scope/sense doc — no restatement of input, slice, parked items, or original probes.
 
 ### Format
 
 ```markdown
 # Plan: <slice name>
-*From [`<sense-artifact-path>`](./<sense-artifact-path>)*
+*From [`<artifact-path>`](./<artifact-path>)*
 
 **Answering:** <one sentence — the strategic question this plan answers, inherited or sharpened from sense>
 
@@ -99,7 +99,7 @@ Now that probes have reshaped the execution understanding, draft the plan in **s
 ### Hard constraints
 
 - **No nested decomposition.** No "execution aspects" as headers. Steps are flat.
-- **No restatement of the sense doc.** No Input, Slice, Parked, or Pressure-tested sections. The plan is purely additive — what's NEW about how we're going to execute this aspect.
+- **No restatement of the upstream artifact.** No Input, Slice, Parked, or Pressure-tested sections. The plan is purely additive — what's NEW about how we're going to execute this aspect.
 - **No bookkeeping metadata per step.** Method + time is the cap. No output artifact names per step, no inline tags, no block markers.
 - **Word budget: ~150–350 words for most plans.** Past ~400 it starts feeling heavy — compress.
 
@@ -109,11 +109,11 @@ Now that probes have reshaped the execution understanding, draft the plan in **s
 
 Save to `design-artifacts/<descriptive-name>--plan.md`, where `<descriptive-name>` is 2–4 hyphenated words describing the slice the plan executes.
 
-The artifact must be **purely additive** over the sense doc — readable as a continuation, not a replacement. A future reader should be able to read the sense doc, then the plan, with no overlap and no gaps.
+The artifact must be **purely additive** over the scope/sense doc — readable as a continuation, not a replacement. A future reader should be able to read the upstream artifact, then the plan, with no overlap and no gaps.
 
 **Anti-patterns:**
 
-- **"Re-derive what sensemaking already produced."** If a sense artifact exists, consume the slice and parked items from it. Don't redo decomposition work in planning.
+- **"Re-derive what scoping/sensemaking already produced."** If an upstream artifact exists, consume the slice and parked items from it. Don't redo decomposition work in planning.
 - **"List every possible step."** Comprehensive plans are over-design. 3–6 steps is the cap. If you have more, the slice is too big or you're re-decomposing — escalate to sense.
 - **"One Watch out per step."** Reading multiple Watch outs in a row is exhausting. Pick the one that matters most.
 - **"Probes for everything."** 1–3 probes is the cap. If more than 3 things in the plan need pressure-testing, the aspect was probably wrongly picked or sense skipped something.
@@ -134,9 +134,9 @@ Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't
 - **Default to fewer steps, not more.** 3–6 steps is the typical range. More than 6 = re-decomposing or the slice is too big.
 - **Each step's *After this:* line must be decision-relevant.** Not "you'll have a file" — *"you'll know X"* / *"you'll have decided Y."*
 - **One Watch out per plan.** The single load-bearing hidden complexity. Multiple watch-outs read as performative.
-- **No restatement of sense.** The plan is additive, not standalone.
-- Planning consumes a sense artifact's chosen aspect. If no sense artifact exists and input is thin, bounce to `/sensemaking-partner`.
-- If the chosen aspect is small enough to act on directly, recommend the appropriate single skill (`/research-partner`, `/thinking-partner`, `/ideation-partner`, `/scoping-partner`) and don't draft a multi-step plan.
-- Artifacts must be purely additive over the sense doc — readable as a continuation, not a replacement.
+- **No restatement of upstream artifact.** The plan is additive, not standalone.
+- Planning consumes a scope/sense artifact's chosen aspect. If no upstream artifact exists and input is thin, bounce to `/scoping-partner`.
+- If the chosen aspect is small enough to act on directly, recommend the appropriate single skill (`/research-partner`, `/thinking-partner`, `/ideation-partner`) and don't draft a multi-step plan.
+- Artifacts must be purely additive over the upstream doc — readable as a continuation, not a replacement.
 
 $ARGUMENTS
