@@ -33,14 +33,16 @@ git clone https://github.com/rodh/design-partner-skills.git ~/.local/share/desig
 ~/.local/share/design-partner-skills/install.sh
 ```
 
-The install script detects supported platforms and symlinks each skill into the appropriate skills directory. Symlinks keep them updatable with `git pull`.
+The install script detects supported platforms and symlinks each skill into the appropriate skills directory. Symlinks keep them updatable via `update`.
+
+Already installed? Run `~/.local/share/design-partner-skills/install.sh update` to pull latest and prune removed skills.
 
 ### Other commands
 
 ```bash
 ./install.sh status      # Show what's linked where
 ./install.sh update      # git pull + re-install + prune stale links
-./install.sh uninstall   # Remove symlinks (leaves the clone intact)
+./install.sh uninstall   # Remove all symlinks (leaves the clone intact)
 ```
 
 ## Usage
