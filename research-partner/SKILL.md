@@ -21,6 +21,12 @@ For **quick lookup**: proceed directly to Investigate with no stop.
 
 Conduct research using available tools — web search, web fetch, codebase scan, whatever fits the question. Work iteratively: follow leads, cross-reference sources, and fill gaps.
 
+**Visual detection:** If the topic has a visual dimension (products, UIs, competitor interfaces), ask once early:
+
+> "This research has a visual component — want me to try capturing screenshots/images as I investigate?"
+
+If yes: best-effort capture as you hit relevant sources. Track what succeeded and what was blocked (auth walls, bot protection). Capture failures don't block text research. One consent gate, not per-source.
+
 Organize findings by **theme or approach**, not by source. Group related information together even if it came from different places.
 
 If findings shift the question, pause and restate the adjusted scope before continuing. Don't let the investigation silently drift.
@@ -37,7 +43,24 @@ Structure findings into a summary:
 - **Implications for this project** — if project context exists, connect findings to the current work
 - **Sources** — where applicable
 
-Present the summary. **Stop and wait** for the user to confirm before saving.
+**Visual results** (only if visual capture was enabled during Investigate):
+- Which sources had screenshots/images captured successfully
+- Which were blocked and why (auth wall, bot protection, etc.)
+- For blocked sources, note alternative paths if obvious (e.g., "marketing page accessible, dashboard behind login")
+
+**Drill-down suggestions:** After presenting findings, identify 3 interesting threads that emerged and present as labeled options. Example from a run researching agentic marketing platforms:
+
+> Angles worth digging deeper on:
+> - **A)** The production-observability gap — why reasoning traces disappear after launch across all five platforms
+> - **B)** Mutiny's $5k/day autonomous-spend threshold — how it was chosen and whether it's configurable per account
+> - **C)** The Clay $12k overage incident and what spend-capping primitives Clay has shipped since
+> - **D) Save and move on** — findings are sufficient as-is
+
+Options must name specific things from the findings — a company, a feature, a number, a surprising pattern, a gap. If you'd write "dig deeper into X" where X is a generic category ("pricing", "features", "architecture"), you're not drilling down — stop and find the specific thing worth exploring instead. Visual follow-ups (retrying blocked captures, finding alternative image sources) belong in the Visual results section, not as drill-down options — drill-downs are for content threads.
+
+If the user picks A/B/C: loop back to Investigate with the narrowed scope. Visual consent carries forward — don't re-ask. On the next Synthesize, integrate drill-down findings into the original themes and offer a fresh set of drill-down options.
+
+If the user picks D: proceed to Save.
 
 ## 4. Save
 
@@ -46,6 +69,8 @@ Save to `design-artifacts/<descriptive-name>--research.md` with:
 - H1 title: `# Research: <title>` summarizing the research question
 - Date
 - Full structured findings from Synthesize
+
+When drill-down loops occurred, the saved artifact reflects all accumulated research. Integrate drill-down findings into the appropriate theme sections — don't append as separate "Round 2" sections. The artifact should read as a single coherent research document.
 
 The artifact must be **self-contained** — readable without conversation context.
 
