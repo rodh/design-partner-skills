@@ -82,14 +82,21 @@ The CSS for these structural elements (`.site-header`, `.hero-banner-img`, `.biz
 <div class="page-connector">clicks through to</div>
 ```
 
-**Annotation** — design rationale callout:
+**Annotation** — review prompts placed after each page-chrome block:
 ```html
 <div class="annotation">
-  <strong>Key point.</strong> Explanation of why this design choice matters.
+  <strong>Decisions to evaluate:</strong><br>
+  — Should the activity feed be collapsible, or always visible? A long feed could push the member table below the fold.<br>
+  — Is sorting/filtering on the member table needed at this fidelity, or does the 4-row default suffice?<br>
+  — "Needs support" vs. "At risk" — which label better matches the team's vocabulary?<br><br>
+  <strong>Assumptions:</strong><br>
+  — Sprint data (completion rate, cycle time) is already available from the task backend — no new integrations needed.<br>
+  — The on-time threshold (currently 80%) would be configurable per-project, not hardcoded.<br>
+  — Trend sparklines per member were deferred — revisit if the team wants historical context at a glance.
 </div>
 ```
 
-**Before/after comparison** — showing how a proposal changes an outcome:
+**Before/after comparison** — showing how a proposal changes an outcome. Include only when explicitly requested by the user or when the workflow change is not self-evident from the wireframe:
 ```html
 <div class="comparison-demo">
   <div class="comparison-demo-title">Scenario — Before vs. After</div>
@@ -448,7 +455,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 | Category | Components |
 |---|---|
 | **Navigation** | Navbar, Sidebar nav, Bottom nav, Breadcrumb nav, Tab navigation, Pagination |
-| **Wireframe Structure** | Page chrome, Existing section, New section, Page connector, Annotation, Before/after comparison |
+| **Wireframe Structure** | Page chrome, Existing section, New section, Page connector, Annotation (decisions + assumptions), Before/after comparison (on request) |
 | **Content** | Stat card, Feature card, Data table, Hero banner, Chip/chip-group, Badge (neutral/success/warning/accent), Avatar (sm/default/lg), Empty state, Skeleton (text/heading/circle/rect) |
 | **Forms** | Text input, Textarea, Search field, Toggle switch, Select dropdown, Accordion, Checkbox group, Radio group |
 | **Feedback** | Alert (info/success/warning/error), Progress bar |

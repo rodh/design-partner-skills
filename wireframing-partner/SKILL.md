@@ -6,13 +6,13 @@ description: Use when the user asks to wireframe, mockup, or visually sketch pro
 
 ## Overview
 
-Produces self-contained HTML wireframes that communicate proposed page changes through a **fidelity gradient**: existing content renders as low-fidelity placeholders (real headings + gray bars), while proposed content renders at full detail. This automatic contrast draws the viewer's eye to what's new without any labels or legends. The wireframe uses a consistent visual language — browser chrome frames, annotation callouts, before/after comparisons, and a "Show proposed" toggle for dashed accent borders around new sections.
+Produces self-contained HTML wireframes that communicate proposed page changes through a **fidelity gradient**: existing content renders as low-fidelity placeholders (real headings + gray bars), while proposed content renders at full detail. This automatic contrast draws the viewer's eye to what's new without any labels or legends. The wireframe uses a consistent visual language — browser chrome frames, annotation callouts (decisions to evaluate + assumptions), and a "Show proposed" toggle for dashed accent borders around new sections.
 
 ## When to Use
 
 - User asks to wireframe, mockup, or sketch a page change
 - User wants to visualize proposed new sections or features on an existing page
-- User needs before/after comparisons of a UI change
+- User needs before/after comparisons of a UI change (use only when explicitly requested)
 - User provides a screenshot and wants to show additions integrated into the real layout
 - User asks for layout variations (tabs) of the same concept
 
@@ -25,7 +25,7 @@ Produces self-contained HTML wireframes that communicate proposed page changes t
 
 ## Phase 1 — Intake
 
-Read the user's description of what page or feature they're wireframing. Scan for existing screenshots, design artifacts, or scope docs relevant to this work — check the artifact directory and one level of subfolders.
+Read the user's description of what page or feature they're wireframing. Scan for existing screenshots, design artifacts, or scope docs relevant to this work — check `design-artifacts/` and one level of subfolders.
 
 Identify:
 - **What exists today** — the current page layout, sections, and structure
@@ -37,7 +37,7 @@ If a screenshot is provided, study it carefully. You will reproduce the actual c
 
 If anything is ambiguous, ask one question via `AskUserQuestion` before proceeding. Don't block on minor details — mark gaps as assumptions and move on.
 
-Check for **project templates** in the `wireframes/` subdirectory under the artifact directory — files prefixed with `_` (e.g., `_<project-name>-template.html`). If one exists for the project being wireframed, read it. Project templates contain project-specific CSS, HTML patterns, and reusable components that must be used for consistency across wireframes in that project.
+Check for **project templates** in `design-artifacts/wireframes/` — files prefixed with `_` (e.g., `_<project-name>-template.html`). If one exists for the project being wireframed, read it. Project templates contain project-specific CSS, HTML patterns, and reusable components that must be used for consistency across wireframes in that project.
 
 ## Phase 2 — Structure
 
@@ -47,15 +47,15 @@ Decide the wireframe layout before generating:
 - **How many tab variations?** One tab per location type, approach, or example. Use tabs when showing the same concept across different contexts.
 - **What existing sections to show?** Render these as low-fidelity placeholders — real headings, placeholder bars for body content.
 - **What new sections to show?** Render these at full fidelity — real text, real data, real structure.
-- **Before/after comparison needed?** Use `.comparison-demo` blocks (the generalized LLM demo pattern) when showing how the proposal changes an outcome.
+- **Before/after comparison needed?** Use `.comparison-demo` blocks only if the user explicitly requests a before/after comparison.
 
 Tell the user your proposed structure in 2–3 sentences, then generate.
 
 ## Phase 3 — Generate
 
-Produce a single self-contained HTML file using the component library in the reference files. Save to the `wireframes/<descriptive-name>.html` subdirectory under the artifact directory.
+Produce a single self-contained HTML file using the component library in the reference files. Save to `design-artifacts/wireframes/<descriptive-name>.html`.
 
-Create the `wireframes/` subdirectory under the artifact directory if it doesn't exist.
+Create the `design-artifacts/wireframes/` directory if it doesn't exist.
 
 If a **project template** was found in Phase 1, use it as the foundation: combine the base CSS library with the project-specific CSS from the template, use its HTML skeleton, and draw from its reusable components. Add wireframe-specific CSS only for elements not already in the template.
 
@@ -99,6 +99,7 @@ This is the core visual communication principle. Existing and new content render
 *Style constraints:*
 - **No color anywhere** in existing sections — everything is grayscale using `var(--existing-border)`, `var(--tag-bg)`, and `var(--text-secondary)`
 - **No emoji or icons** in existing content
+- **No color escalation** — once a section is rendered in grayscale, it stays grayscale across all iterations. Never promote an existing section to full fidelity or add color to it in a later pass
 
 **New/proposed sections — high fidelity, this is the point:**
 - Real text, real data, real structure — full detail
@@ -107,6 +108,27 @@ This is the core visual communication principle. Existing and new content render
 - **The dashed accent border (via the "Show proposed" toggle) is the ONLY visual marker** distinguishing proposed from existing. Do not add background colors (e.g., `accent-light` background), colored text, or accent-colored labels to proposed sections — unless the color is part of the actual design recommendation being presented. The fidelity contrast does the work; the dashed border confirms it.
 
 **The test:** If you removed the dashed accent borders, could a viewer still instantly tell which content is proposed vs. existing? Existing sections should feel like the page's gray skeleton — recognizable layout and shapes, but no readable content. If existing sections have color or filled-in data, the fidelity gradient is broken. Conversely, if existing sections are collapsed into generic labeled blocks that all look the same, the wireframe loses the page's identity and the viewer can't orient themselves.
+
+### Prototype Boundary
+
+Everything inside `.page-chrome` must read as if a real end user is looking at the product. Hard rules:
+
+- **No meta-labels** — never write "NEW:", "PROPOSED", "UPDATED", "EXAMPLE:", or similar tags inside the wireframe
+- **No design rationale sentences** — explanations of why a choice matters belong in annotations outside `.page-chrome`, never inline
+- **No placeholder-as-explanation** — never write "metrics would appear here" or "this section shows…". Populate with realistic mock data instead
+- **No section-purpose descriptions** — a heading like "Team Performance" is fine; a heading like "Team Performance (proposed new section to help managers track sprint health)" is not
+
+**The test:** Read every line inside `.page-chrome` aloud. If it would confuse a real end user — because it's talking about the design rather than being the design — it violates the boundary.
+
+### Pre-generation Check
+
+Before writing any HTML, verify these three things against your planned output:
+
+1. **Existing sections use only grayscale CSS vars** — `var(--existing-border)`, `var(--tag-bg)`, `var(--text-secondary)`. No `var(--green)`, `var(--blue)`, `var(--accent)`, or any color in existing content.
+2. **Existing sections contain only headings + placeholder bars** — no readable body text, data values, colored badges, or filled-in content.
+3. **No meta-labels inside page-chrome** — every line inside `.page-chrome` reads as production copy.
+
+If any check fails, fix the plan before generating.
 
 ### Screenshot Fidelity
 
@@ -154,7 +176,7 @@ Every wireframe follows this skeleton:
 
 <div class="container">
   <!-- If tabs: wrap each variation in <div id="tab-[name]" class="tab-content"> -->
-  <!-- Page chrome blocks, new sections, annotations, comparisons -->
+  <!-- Page chrome blocks, new sections, annotations -->
 </div>
 
 <!-- Highlights toggle JS (always included) -->
@@ -173,21 +195,29 @@ updateHighlights();
 
 ## Phase 4 — Annotate
 
-After generating the wireframe HTML, add:
+After generating the wireframe HTML, add **one annotation per page-chrome block** (`.annotation`), placed immediately after it. Each annotation has two sections:
 
-1. **Annotation callouts** (`.annotation`) — explain *why* proposed changes matter, not just what they are. **One annotation per page-chrome block**, placed immediately after it. Each annotation should focus on the specific design decisions in that wireframe — not repeat points from other annotations. When the wireframe shows a multi-page flow (e.g., sidebar summary → full detail view), each page's annotation addresses what that particular view contributes and why.
-   - When an annotation lists multiple numbered points, format each on its own line using `<br>`. Bold the number and pattern name with `<strong>`, keep the description in regular weight. This makes the callout scannable — the reader can count points at a glance and jump to the one that interests them.
+1. **Decisions to evaluate** — real open questions for the reviewer. These should be genuine choices the reviewer needs to weigh, not rhetorical questions with obvious answers. Format each as a dash-prefixed line using `<br>`.
 
-2. **Before/after comparisons** (`.comparison-demo`) — if the proposal changes how something works for end users, show a concrete scenario with the before (gap/failure) and after (improvement). Use real-sounding scenarios, not abstract ones.
+2. **Assumptions** — what the wireframe takes for granted (data availability, configurability, scope boundaries) and what was explicitly deferred. Format each as a dash-prefixed line using `<br>`.
 
-These should already be woven into the HTML during generation. This phase is a checklist to confirm they're present and useful.
+Bold the section headings with `<strong>`. Separate the two sections with `<br><br>`.
+
+**Anti-patterns — do not write annotations that:**
+- Describe what the wireframe already shows ("The stat cards surface sprint-level metrics")
+- Explain why a design choice matters ("This helps managers spot issues faster")
+- Restate the user's request as an insight ("Adding team performance to the dashboard addresses the visibility gap")
+
+**Before/after comparisons** (`.comparison-demo`) — include only when the user explicitly requests one, or when the workflow change is not self-evident from the wireframe alone. Do not include by default.
+
+This phase is a checklist to confirm annotations are present, useful, and contain no design rationale.
 
 ## Quick Reference
 
 | Category | Components |
 |---|---|
 | **Navigation** | Navbar, Sidebar nav, Bottom nav, Breadcrumb nav, Tab navigation, Pagination |
-| **Wireframe Structure** | Page chrome, Existing section, New section, Page connector, Annotation, Before/after comparison |
+| **Wireframe Structure** | Page chrome, Existing section, New section, Page connector, Annotation (decisions + assumptions), Before/after comparison (on request) |
 | **Content** | Stat card, Feature card, Data table, Hero banner, Chip/chip-group, Badge (4 variants), Avatar (3 sizes), Empty state, Skeleton (4 types) |
 | **Forms** | Text input, Textarea, Search field, Toggle switch, Select dropdown, Accordion, Checkbox group, Radio group |
 | **Feedback** | Alert (info/success/warning/error), Progress bar |
@@ -209,10 +239,10 @@ These should already be woven into the HTML during generation. This phase is a c
 | Collapse multiple distinct page areas into a single labeled block (e.g., "Site Header + Breadcrumbs + Hero") | Render each area as its own structural block — header, breadcrumbs, hero, name, buttons, details grid are all separate |
 | Reproduce full data structures (hours tables, review bar charts, ratings) in existing sections | A few placeholder bars convey "there's a table here" without competing with proposed content |
 | Add background colors or accent-colored labels to proposed sections to make them "pop" | The dashed accent border (via the toggle) is the only structural marker. Fidelity contrast does the rest. Only use color in proposed content if it's part of the actual design recommendation |
-
-## Artifact Directory
-
-Skills save artifacts to the configured artifact directory. To configure, add `Artifact directory: <path>` to your project's CLAUDE.md. Default: `artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check the artifact directory and one level of subfolders. Before writing, check if an artifact already exists at the target path — read it and reflect awareness of prior work.
+| Add meta-labels inside page chrome ("NEW:", "PROPOSED", "EXAMPLE:") | Everything inside `.page-chrome` reads as production copy — no design-language leaks |
+| Write placeholder-as-explanation text ("metrics would appear here", "this section shows…") | Populate with realistic mock data. If the data shape is unclear, use plausible values |
+| Write annotations that describe what the wireframe shows ("The stat cards surface sprint metrics") | Annotations contain decisions to evaluate + assumptions to validate — not narration |
+| Include before/after comparison by default | Only include `.comparison-demo` when the user requests it or the workflow change isn't self-evident |
 
 ## Rules
 
