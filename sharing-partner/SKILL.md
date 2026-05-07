@@ -5,7 +5,7 @@ description: Use when you need to communicate design work to a specific audience
 
 ## Phase 1 — Gather
 
-Read the artifacts the user points to — session notes, briefs, concepts, wireframes, scope docs. Scan `design-artifacts/` (and one level of subfolders) for related context that adds depth.
+Read the artifacts the user points to — session notes, briefs, concepts, wireframes, scope docs. Scan the artifact directory (and one level of subfolders) for related context that adds depth.
 
 Then ask (one question per `AskUserQuestion` or `requestUserInput` call, never batch):
 
@@ -79,19 +79,15 @@ Common refinement axes: tone (too formal/informal), length (cut or expand), emph
 
 **Stop and wait** for the user to confirm before saving.
 
-**Save to:**
-- One-pager: `design-artifacts/<descriptive-name>--sharing.md`
-- Async message: `design-artifacts/<descriptive-name>--sharing.md`
-- Ticket/story: `design-artifacts/<descriptive-name>--ticket.md`
-- Talking points: `design-artifacts/<descriptive-name>--sharing.md`
+**Save to:** `<descriptive-name>_share.md` in the artifact directory. Derive the descriptive name from the core topic — 2-4 hyphenated words.
 
-Start the file with an H1 title: `# Sharing: <descriptive title>` (or `# Ticket: <title>` for ticket format). Derive the descriptive name from the core topic — 2-4 hyphenated words.
+Start the file with an H1 title: `# Sharing: <descriptive title>` (for one-pager, async message, or talking points) or `# Ticket: <title>` (for ticket format).
 
 **Anti-pattern: "Just clean up my notes."** This skill reframes, it doesn't summarize. If the output reads like a shorter version of the input, it missed. The reader has a different mental model — this skill restructures information for their brain, not yours.
 
 ## Artifact Directory
 
-Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders. Before writing, check if an artifact already exists at the target path. If it does, read it — the current run's output should reflect awareness of prior work, not blindly replace it.
+Skills save artifacts to the configured artifact directory. To configure, add `Artifact directory: <path>` to your project's CLAUDE.md. Default: `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check the artifact directory and one level of subfolders. Before writing, check if an artifact already exists at the target path — read it and reflect awareness of prior work.
 
 ## Rules
 

@@ -1,6 +1,6 @@
 # Scope Artifact Template
 
-Save to `design-artifacts/<descriptive-name>--scope.md`.
+Save to `<descriptive-name>_scope.md` in the artifact directory.
 
 **Above the divider** = always-read. **Below** = on-demand depth.
 

@@ -5,7 +5,7 @@ description: Use when you need to research a topic — look into competitor patt
 
 ## 1. Scope
 
-Ingest the research question from `$ARGUMENTS`. Scan CWD for context related to the topic: code, docs, existing `design-artifacts/**/*--research.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already answers the question, surface it instead of re-researching.
+Ingest the research question from `$ARGUMENTS`. Scan CWD for context related to the topic: code, docs, existing `*_research.md` artifacts in the artifact directory, plans, and recent commits. Read what's relevant — don't deep-read everything. If a prior artifact already answers the question, surface it instead of re-researching.
 
 Classify depth:
 
@@ -64,7 +64,7 @@ If the user picks D: proceed to Save.
 
 ## 4. Save
 
-Save to `design-artifacts/<descriptive-name>--research.md` with:
+Save to `<descriptive-name>_research.md` in the artifact directory, with:
 
 - H1 title: `# Research: <title>` summarizing the research question
 - Date
@@ -78,7 +78,7 @@ The artifact must be **self-contained** — readable without conversation contex
 
 ## Artifact Directory
 
-Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders. Before writing, check if an artifact already exists at the target path. If it does, read it — the current run's output should reflect awareness of prior work, not blindly replace it.
+Skills save artifacts to the configured artifact directory. To configure, add `Artifact directory: <path>` to your project's CLAUDE.md. Default: `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check the artifact directory and one level of subfolders. Before writing, check if an artifact already exists at the target path — read it and reflect awareness of prior work.
 
 ## Rules
 

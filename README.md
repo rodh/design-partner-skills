@@ -48,4 +48,4 @@ The install script detects supported platforms and symlinks each skill into the 
 
 Invoke any skill by name — e.g., `/scoping-partner [link or paste a ticket]`
 
-Skills scan the working directory for existing artifacts and build on prior work automatically.
+Skills scan the working directory for existing artifacts and build on prior work automatically. Artifacts are saved to `design-artifacts/` by default. To use a different directory, add `Artifact directory: <path>` to your project's CLAUDE.md.

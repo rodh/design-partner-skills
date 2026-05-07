@@ -5,7 +5,7 @@ description: Use when you need to think something through — weighing options, 
 
 ## 1. Read context
 
-Scan CWD for context related to the topic: code, docs, existing `design-artifacts/**/*--thinking.md` sessions, `design-artifacts/**/*--research.md` artifacts, `design-artifacts/**/*--scope.md` artifacts, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
+Scan CWD for context related to the topic: code, docs, existing `*_thinking.md` sessions, `*_research.md` artifacts, `*_scope.md` artifacts in the artifact directory, plans, and recent commits. Read what's relevant — don't deep-read everything. Note what exists and what's absent; both inform the Frame. If the user references specific files, prioritize those.
 
 ## 2. Frame
 
@@ -73,7 +73,7 @@ If no changes needed: skip to Capture.
 
 ## 5. Capture
 
-Write a session note to `design-artifacts/<descriptive-name>--thinking.md`, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus (e.g., `design-artifacts/auth-token-expiry--thinking.md`).
+Write a session note to `<descriptive-name>_thinking.md` in the artifact directory, where `<descriptive-name>` is 2-4 hyphenated words describing the artifact's focus (e.g., `auth-token-expiry_thinking.md`).
 
 Start the file with an H1 title in the format `# Thinking: <title>`, where `<title>` summarizes the session content.
 
@@ -88,7 +88,7 @@ Start the file with an H1 title in the format `# Thinking: <title>`, where `<tit
 
 ## Artifact Directory
 
-Skills save artifacts to `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check `design-artifacts/` and one level of subfolders — users may manually organize artifacts into subfolders. Before writing, check if an artifact already exists at the target path. If it does, read it — the current run's output should reflect awareness of prior work, not blindly replace it.
+Skills save artifacts to the configured artifact directory. To configure, add `Artifact directory: <path>` to your project's CLAUDE.md. Default: `design-artifacts/`. Create the directory if it doesn't exist. When scanning for existing artifacts, check the artifact directory and one level of subfolders. Before writing, check if an artifact already exists at the target path — read it and reflect awareness of prior work.
 
 ## Rules
 
