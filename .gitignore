@@ -3,5 +3,5 @@
 *.swo
 *~
 Artifacts/
-design-artifacts/
+artifacts/
 docs/
