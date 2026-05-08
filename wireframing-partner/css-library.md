@@ -194,7 +194,7 @@ Base CSS library for wireframing-partner. Copy verbatim into every generated wir
   /* Page chrome */
   .page-chrome {
     background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
   .chrome-header {
     background: #fafafa; border-bottom: 1px solid var(--existing-border); padding: 10px 16px;
